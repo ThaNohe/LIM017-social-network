@@ -1,15 +1,17 @@
 /*estilos pagina principal*/
-body {
-    font-family: 'Righteous', cursive;
-}
-
-.welcomeBackgr{
-    background-image:  linear-gradient(120deg, rgba(64, 58, 64, 0.699) 0%, rgba(95, 39, 46, 0.692) 100%);
+/* body {
+    background-image:  linear-gradient(120deg, rgba(64, 58, 64, 0.699) 0%, rgba(95, 39, 46, 0.692) 100%),
+    url(../pics/welcome-pic.jpg);
     font-family: 'Righteous', cursive;
     background-repeat: no-repeat;
     background-position:center;
     background-attachment: fixed;
     background-size: cover;
+} */
+
+.picture{
+    width: 150px;
+
 }
 
 .title{
@@ -48,7 +50,7 @@ body {
     height:320px;
     text-align: center;
     color:white;
-  }
+}
 
 .logoGoogle{
     size:5px;
