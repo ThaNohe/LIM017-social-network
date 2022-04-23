@@ -42,22 +42,57 @@
     text-decoration: none;
 }
 
-.btnJoinUs{
-    background-color: #FF8C32;
-    border-radius: 12px;
-    width: 25%;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
+/* estilos paginas de registro */
 
-    position: absolute;
-    top: 100%;
-    left: 50%;
+.loginBackgr{
+    background-image:  linear-gradient(120deg, rgba(64, 58, 64, 0.699) 0%, rgba(95, 39, 46, 0.692) 100%);
+    font-family: 'Righteous', cursive;
+    background-repeat: no-repeat;
+    background-position:center;
+    background-attachment: fixed;
+    background-size: cover;
 }
-/*estilos paginas de registro/*
+.loginPage{
+    background: url(../pics/login-pic.jpg);
+    background-color: #102166;
+}
+.center-box{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border: 2px solid white;
+    border-radius: 40px;
+    width:300px;
+    height:320px;
+    text-align: center;
+    color:white;
+}
+
+.logoGoogle{
+    size:5px;
+    height:fit-content;
+    width:50px;
+}
+
+.logoUser{
+    width:fit-content;
+    height:200px;
+    border-radius:50%;
+    border:10px solid;
+    border-color:#102166;
+    text-align:center;
+    background:center no-repeat;
+}
+
+/* estilos boton registro */
+.buttonstyle a{
+    text-decoration: none;
+    color: white;
+}
+.buttonstyle{
+    background-color:#FF8C32;
+    border-radius: 50px;
+    width:100px;
+}
 /*estilos newsfeed/*

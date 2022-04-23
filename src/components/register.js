@@ -9,9 +9,7 @@ export default () => {
                 <p id="passError" class="error"></p>
                 <button id="buttonRegister" class="buttonnextPage"><a href="#/news">Registrate ahora</a></button>
             </div>
-            <div class="withGoogle">
-            <p class="pGoogle">Regístrate con Google</p>
-            <img src="./img/googleLogo.png" alt="google logo" id="googleImg" class="logoGoogle">
+            <div class="backLogin">
             <p class="pGoogle">¿Ya tienes una cuenta?</p>
             <button id="backLogin" class="backpage"><a href="#/login">Iniciar Sesión</a></button>
             </div>
