@@ -1,7 +1,7 @@
 export default () => {
   const loginPage = `
 <section class=" loginPage">
-  <img src="./pics/login-pic.jpg" alt="Fondo login" class="loginBackgr">
+  <img alt="Fondo login" class="loginBackgr">
   <div class="center-box" id="login-div">
   <h2 >Iniciar sesión</h2>
   <img src="./pics/userpicNekko.jpg" class="logoUser" id="userPic">

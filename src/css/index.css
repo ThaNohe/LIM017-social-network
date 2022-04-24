@@ -11,7 +11,9 @@
 
 .picture{
     width: 150px;
-
+}
+.WelcomeBackgr{
+    background-image: url('./pics/welcome-pic.jpg');
 }
 
 .title{
@@ -27,18 +29,20 @@
 
 /* estilos paginas de registro */
 
-.loginBackgr{
-    background-image:  linear-gradient(120deg, rgba(64, 58, 64, 0.699) 0%, rgba(95, 39, 46, 0.692) 100%);
-    font-family: 'Righteous', cursive;
-    background-repeat: no-repeat;
-    background-position:center;
-    background-attachment: fixed;
-    background-size: cover;
-}
 .loginPage{
-    background: url(../pics/login-pic.jpg);
-    background-color: #102166;
+    font-family: 'Righteous', cursive;
+    height:100vh;
+    width: 100%;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
+.loginBackg{
+    background-image: url ('../pics/loginBackground.jpg') ;
+}
+
+
 .center-box{
     position: absolute;
     top:50%;
@@ -47,7 +51,7 @@
     border: 2px solid white;
     border-radius: 40px;
     width:300px;
-    height:320px;
+    height:500px;
     text-align: center;
     color:white;
 }
