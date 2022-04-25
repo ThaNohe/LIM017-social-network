@@ -34,7 +34,7 @@
 
 /* estilos paginas de registro */
 
-.loginPage{
+.login-page{
     font-family: 'Righteous', cursive;
     height:100vh;
     width: 100%;
@@ -43,8 +43,9 @@
     background-size: cover;
     background-attachment: fixed;
 }
-.loginBackg{
-    background-image: url ('../pics/loginBackground.jpg') ;
+.login-page__background-pic{
+    background-image: linear-gradient(120deg, rgba(64, 58, 64, 0.699) 0%, rgba(95, 39, 46, 0.692) 100%),,
+    url ('../pics/loginBackground.jpg') ;
 }
 
 
@@ -61,13 +62,13 @@
     color:white;
 }
 
-.logoGoogle{
+.logo-google{
     size:5px;
     height:fit-content;
     width:50px;
 }
 
-.logoUser{
+.logo-user{
     width:fit-content;
     height:200px;
     border-radius:50%;
