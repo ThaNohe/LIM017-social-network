@@ -1,4 +1,4 @@
-export default () => {
+const loginDisplay = () => {
   const loginPage = `
 <section class=" login-page">
   <div class="center-box" id="login-div">
@@ -24,6 +24,8 @@ export default () => {
 `;
   const divElement = document.createElement('div');
   divElement.innerHTML = loginPage;
-  divElement.querySelector('#loginBtn').addEventListener('click', () => console.log('loginBtn'));
+  /*   divElement.querySelector('#loginBtn').addEventListener('click', () => function(){
+  const registerEmail= document.getElementById("register-email").value; }); */
   return divElement;
 };
+export default loginDisplay;

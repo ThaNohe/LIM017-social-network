@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.11/firebase/auth.js';
+import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js';
 import { app } from './config.js';
 
 const auth = getAuth(app);
@@ -9,16 +9,18 @@ export const registerWithEmail = (email, password) => {
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
+      console.log(user);
       // ...
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      console.log(error);
       // ..
     });
 };
 
- //auth del login usuario crea cuenta
+/*  //auth del login usuario nuevo crea cuenta
 document.getElementById("register-btn").addEventListener('click', function(){
 
     const registerEmail= document.getElementById("register-email").value;
@@ -64,3 +66,4 @@ document.getElementById("register-btn").addEventListener('click', function(){
 
 //auth con google
 
+ */

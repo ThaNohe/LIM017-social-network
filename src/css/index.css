@@ -47,7 +47,7 @@
     position: absolute;
     top: 80%;
     left: 40%;
-    font-size: 40px;
+    font-size: 60px;
     padding: 1em 2em;
     font-family: 'Righteous', cursive;
     width:auto;
@@ -75,6 +75,13 @@
     url('../pics/loginBackground.jpg');
 }
 
+.register-page{
+    color:white;
+}
+.pGoogle a{
+    text-decoration:none;
+    color:aqua;
+}
 
 .center-box{
     position: absolute;

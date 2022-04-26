@@ -1,12 +1,14 @@
-export default () => {
+import { registerWithEmail } from '../lib/authFunctions.js';
+
+const registerDisplay = () => {
   const registerPage = `
   <section class=" register-page">
   <div class= "inputContainerRegister">
                 <input type="text" id="inputName" placeholder="Usuario">
                 <p id="emptyInputName" class="error"></p>
-                <input type="email" id="inputEmail" placeholder="Correo electrónico">
+                <input type="email" id="inputEmail" placeholder="Correo electrónico" required>
                 <p id="errorEmail" class="error"></p>
-                <input type="password" id="inputPassword"placeholder="Contraseña">
+                <input type="password" id="inputPassword"placeholder="Contraseña" required>
                 <p id="passError" class="error"></p>
                 <button id="btnRegister" class="button-orange"><a href="#/news">Registrate ahora</a></button>
             </div>
@@ -20,9 +22,16 @@ export default () => {
   const divElement = document.createElement('div');
   divElement.innerHTML = registerPage;
 
-/*   const registerEmail = divElement.querySelector('#btnRegister').addEventListener('click', () => function () {
-    const registerEmailValue = document.getElementById('btnRegister').value;
-  }
-  return registerEmail ); */
+  const signUpForm = divElement.querySelector('#btnRegister').addEventListener('click', (e) => {
+    e.preventDefault();
+    const userValue = document.getElementById('inputName').value;
+    const registerEmailValue = document.getElementById('inputEmail').value;
+    const registerPasswordValue = document.getElementById('inputPassword').value;
+    console.log(userValue, registerEmailValue, registerPasswordValue);
+    registerWithEmail(registerEmailValue, registerPasswordValue);
+    return signUpForm;
+  });
   return divElement;
 };
+export default registerDisplay;
+console.log(registerDisplay);
