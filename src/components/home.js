@@ -1,16 +1,14 @@
 export default () => {
   const homePage = `
-  <section id="welcomePage" >
-
-  <div class="parent" >
-
-    <img class="picture1" src="./pics/welcome-pic.jpg" alt="Fondo bienvenida" />
-    <img class="picture2" src="./pics/flor-cerezo-pic.jpg" alt="Icono titulo" />
-    
+  <section id="welcomePage" class="welcome-background-pic">
+  <p class="welcome-title-animegang">ANIME GANG</p>
+  <div class="intro-box" >
+  <p>Se parte de nuestra comunidad de amantes de la animación japonesa,comparte tus experiencias 
+  y recomendaciones de tus animes favoritos.
+  </p>
   </div>
+  <button id="btnJoinUs"class="title"><a href="#/login">Únete</a></button>
 
-   <p class="title">ANIME GANG</p>
-   <button id="btnJoinUs"class="btnJoinUs"><a href="#/login">Únete</a></button>
 </section>
   `;
   const divElement = document.createElement('div');

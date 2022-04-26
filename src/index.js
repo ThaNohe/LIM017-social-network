@@ -18,17 +18,19 @@ export const changeView = (route) => {
   container.innerHTML = '';
   switch (route) {
     case '':
-    { return container.appendChild(components.Home()); }
+      return container.appendChild(components.Home());
     case '#/home':
-    { return container.appendChild(components.Home()); }
+      return container.appendChild(components.Home());
     case '#/login':
-    { return container.appendChild(components.Login()); }
+      return container.appendChild(components.Login());
     case '#/register':
-    { return container.appendChild(components.Register()); }
+      return container.appendChild(components.Register());
     case '#/news':
-    { return container.appendChild(components.Newsfeed()); }
+      return container.appendChild(components.Newsfeed());
     default:
       break;
   }
+  const registerFunction = document.getElementById('buttonRegister');
+  console.log(registerFunction);
   return route;
 };
