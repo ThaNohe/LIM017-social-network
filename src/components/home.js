@@ -8,6 +8,7 @@ export default () => {
   </p>
   </div>
   <button id="btnJoinUs"class="title"><a href="#/login">Únete</a></button>
+
 </section>
   `;
   const divElement = document.createElement('div');
