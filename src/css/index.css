@@ -9,19 +9,18 @@
     background-size: cover;
 } */
 
-.welcomeBackgr{
+.welcome-background-pic{
     height:100vh;
     width: 100%;
     background-position:center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-}
-.picture{
-    background-image: url('../pics/welcome-pic.jpg');
+    background-image:linear-gradient(120deg, rgba(64, 58, 64, 0.699) 0%, rgba(95, 39, 46, 0.692) 100%),
+    url('../pics/welcome-pic.jpg')
 }
 
-.title{
+.welcome-title-animegang{
     position: absolute;
     top: 30%;
     left: 50%;
@@ -29,23 +28,51 @@
     color: #FF8C32 ;
     font-family: 'Righteous', cursive;
     font-size:100px;
-    text-decoration: none;
 }
+.intro-box{
+    background-color:#0B1437;
+    color:white;
+    font-family: 'Righteous', cursive;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:200px;
+    height: auto;
+}
+
+.title{
+    background-color:#FF8C32;
+    border-radius: 50px;
+    width:100px;
+    position: absolute;
+    top: 80%;
+    left: 40%;
+    font-size: 40px;
+    padding: 1em 2em;
+    font-family: 'Righteous', cursive;
+    width:auto;
+    display: inline-block;
+}
+
+.title a{
+    text-decoration: none;
+    color: white;
+}
+
 
 /* estilos paginas de registro */
 
-.login-page{
+.login-page, .register-page{
     font-family: 'Righteous', cursive;
     height:100vh;
     width: 100%;
-    background-position:center;
+    color:#ffc0cb
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-}
-.login-page__background-pic{
-    background-image: linear-gradient(120deg, rgba(64, 58, 64, 0.699) 0%, rgba(95, 39, 46, 0.692) 100%),,
-    url ('../pics/loginBackground.jpg') ;
+    background-image: linear-gradient(120deg, rgba(64, 58, 64, 0.699) 0%, rgba(95, 39, 46, 0.692) 100%),
+    url('../pics/loginBackground.jpg');
 }
 
 
@@ -54,12 +81,14 @@
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
-    border: 2px solid white;
-    border-radius: 40px;
+    border: none;
+    padding: 5em 7em;
+    border-radius: 2.5rem;
     width:300px;
     height:500px;
     text-align: center;
-    color:white;
+    color:black;
+    background-color: rgb(238,238,238,0.5);
 }
 
 .logo-google{
@@ -78,14 +107,17 @@
     background:center no-repeat;
 }
 
-/* estilos boton registro */
-.buttonstyle a{
+/* estilos boton login y registro */
+.button-orange a{
     text-decoration: none;
     color: white;
 }
-.buttonstyle{
+.button-orange{
     background-color:#FF8C32;
-    border-radius: 50px;
-    width:100px;
+    border-radius: 0.62rem;
+    padding: 1em 2em;
+    width:auto;
+    display: inline-block;
+    color: white;
 }
 /*estilos newsfeed/*
