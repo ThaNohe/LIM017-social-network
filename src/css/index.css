@@ -7,9 +7,15 @@
     background-position:center;
     background-attachment: fixed;
     background-size: cover;
-} */
+}*/
+* {
+    padding: 0;
+    margin: 0;
+}
+
 
 .welcome-background-pic{
+    position: absolute;
     height:100vh;
     width: 100%;
     background-position:center;
@@ -28,7 +34,14 @@
     color: #FF8C32 ;
     font-family: 'Righteous', cursive;
     font-size:100px;
+    -webkit-text-stroke: 2px black;
 }
+.flower-title{
+    width:110px;
+    height: 110px;
+    display: inline-block;
+}
+
 .intro-box{
     background-color:#0B1437;
     color:white;
@@ -40,25 +53,48 @@
     height: auto;
 }
 
-.title{
+.image-position{
+    display : inline-block;
+    width: fit-content;
+}
+.intro-box{
+    background-color:#0B1437;
+    color:white;
+    font-family: 'Righteous', cursive;
+    text-align: center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:440px;
+    height: 110px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin: 50px 0 0 -200px;
+    border-radius: 20px;
+}
+
+.buttonhomeorange{
     background-color:#FF8C32;
-    border-radius: 50px;
-    width:100px;
-    position: absolute;
+    border-radius: 30px;
+    padding: 4px 64px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 28px;
+    position : absolute;
     top: 80%;
     left: 40%;
-    font-size: 60px;
-    padding: 1em 2em;
     font-family: 'Righteous', cursive;
     width:auto;
     display: inline-block;
+    margin: 0px 0 0 50px;
 }
 
-.title a{
+.buttonhomeorange a{
     text-decoration: none;
     color: white;
 }
-
 
 /* estilos paginas de registro */
 
@@ -66,7 +102,7 @@
     font-family: 'Righteous', cursive;
     height:100vh;
     width: 100%;
-    color:#ffc0cb
+    color:#ffc0cb;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -83,7 +119,7 @@
     color:aqua;
 }
 
-.center-box{
+.center-box, .inputContainerRegister{
     position: absolute;
     top:50%;
     left:50%;
