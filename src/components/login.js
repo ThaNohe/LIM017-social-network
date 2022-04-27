@@ -1,11 +1,6 @@
 export default () => {
   const loginPage = `
-<<<<<<< HEAD
-<section class=" loginPage">
-  <img src="./pics/login-pic.jpg" alt="Fondo login" class="loginBackgr">
-=======
   <section class=" login-page">
->>>>>>> f24ef2707a2ea8447016d2a67cecf2528621e809
   <div class="center-box" id="login-div">
   <h2 >Iniciar sesión</h2>
   <img src="./pics/userpicNekko.jpg" class="logoUser" id="userPic">
@@ -27,10 +22,7 @@ export default () => {
 `;
   const divElement = document.createElement('div');
   divElement.innerHTML = loginPage;
-<<<<<<< HEAD
-=======
   /* divElement.querySelector('#loginBtn').addEventListener('click', () => function() {
     const registerEmail = document.getElementById("register-email").value; }); */
->>>>>>> f24ef2707a2ea8447016d2a67cecf2528621e809
   return divElement;
 };

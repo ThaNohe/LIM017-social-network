@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 // eslint-disable-next-line import/no-unresolved
 import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js';
 import { app } from './config.js';
@@ -67,4 +65,3 @@ document.getElementById("register-btn").addEventListener('click', function(){
 //auth con google
 
  */
->>>>>>> f24ef2707a2ea8447016d2a67cecf2528621e809
