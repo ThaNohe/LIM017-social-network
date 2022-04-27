@@ -1,6 +1,6 @@
 const loginDisplay = () => {
   const loginPage = `
-<section class=" login-page">
+  <section class=" login-page">
   <div class="center-box" id="login-div">
   <h2 >Iniciar sesión</h2>
   <img src="./pics/userpicNekko.jpg" class="logo-user" id="userPic">
@@ -24,8 +24,8 @@ const loginDisplay = () => {
 `;
   const divElement = document.createElement('div');
   divElement.innerHTML = loginPage;
-  /*   divElement.querySelector('#loginBtn').addEventListener('click', () => function(){
-  const registerEmail= document.getElementById("register-email").value; }); */
+  /* divElement.querySelector('#loginBtn').addEventListener('click', () => function() {
+    const registerEmail = document.getElementById("register-email").value; }); */
   return divElement;
 };
 export default loginDisplay;
