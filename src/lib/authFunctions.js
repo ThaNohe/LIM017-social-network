@@ -20,12 +20,11 @@ export const registerWithEmail = (email, password) => {
     });
 };
 
-/*  //auth del login usuario nuevo crea cuenta
+/* //auth del login usuario nuevo crea cuenta
 document.getElementById("register-btn").addEventListener('click', function(){
 
     const registerEmail= document.getElementById("register-email").value;
     const registerPassword =document.getElementById("register-password").value;
- 
     createUserWithEmailAndPassword(auth, registerEmail, registerPassword)
    .then((userCredential) => {
      const user = userCredential.user;
@@ -38,7 +37,6 @@ document.getElementById("register-btn").addEventListener('click', function(){
      document.getElementById("result-box").style.display="inline";
       document.getElementById("register-div").style.display="none";
       document.getElementById("result").innerHTML="Sorry ! <br>"+errorMessage;
- 
    });
  });
 
