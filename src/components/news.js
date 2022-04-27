@@ -1,6 +1,7 @@
 export default () => {
   const newsFeed = `
 <<<<<<< HEAD
+<<<<<<< HEAD
   <section class="header">
         <nav class="header-nav">
             <div class="logos-container">
@@ -82,6 +83,9 @@ export default () => {
 =======
   <button id="btnReturnHome"class="title"><a href="#/home">Cerrar sesion</a></button>
 >>>>>>> 54aa645349e7296b832d60ba60ed83f4dc189691
+=======
+  <button id="btnReturnHome" class="title"><a href="#/home">Cerrar sesion</a></button>
+>>>>>>> f24ef2707a2ea8447016d2a67cecf2528621e809
     `;
   const divElement = document.createElement('div');
   divElement.innerHTML = newsFeed;

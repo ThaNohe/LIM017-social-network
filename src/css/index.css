@@ -8,7 +8,12 @@
     background-attachment: fixed;
     background-size: cover;
 } */
+*{
+    padding: 0;
+    margin: 0;
+}
 
+<<<<<<< HEAD
 .parent{
     position: relative;
     top: 0;
@@ -43,10 +48,89 @@
 }
 
 /* estilos paginas de registro */
+=======
+.home-container{
+    background-image:linear-gradient(120deg, rgba(64, 58, 64, 0.699) 0%, rgba(95, 39, 46, 0.692) 100%),
+    url('../pics/welcome-pic.jpg');        
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    width:100vw; 
+    height:100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-home{
+    color: #FF8C32 ;
+    font-family: 'Righteous', cursive;
+    font-size:100px;
+    -webkit-text-stroke: 1px black;
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+}
+
+.flower-title{
+    width:110px;
+    height: 110px;
+    display: inline-block;
+    margin: 0px 0 0 50px;
+}
+
+.intro-box{
+    background-color: #0B1437;
+    color: white;
+    font-family: 'Righteous', cursive;
+    text-align: center;
+    align-items: center;
+    width: 440px;
+    border-radius: 20px;
+    padding: 14px;
+}
+
+
+
+.buttonhomeorange{
+    background-color:#FF8C32;
+    border-radius: 30px;
+    padding: 4px 64px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 28px;
+    position : absolute;
+    top: 80%;
+    left: 40%;
+    font-family: 'Righteous', cursive;
+    width:auto;
+    display: inline-block;
+    margin: 0px 0 0 50px;
+}
+
+.buttonhomeorange a{
+    text-decoration: none;
+    color: white; 
+} */
+
+
+/*estilos paginas de registro*/
+>>>>>>> f24ef2707a2ea8447016d2a67cecf2528621e809
 
 .loginBackgr{
     background-image:  linear-gradient(120deg, rgba(64, 58, 64, 0.699) 0%, rgba(95, 39, 46, 0.692) 100%);
     font-family: 'Righteous', cursive;
+<<<<<<< HEAD
+=======
+    height:100vh;
+    width: 100%;
+    color:#ffc0cb;
+    background-position: center;
+>>>>>>> f24ef2707a2ea8447016d2a67cecf2528621e809
     background-repeat: no-repeat;
     background-position:center;
     background-attachment: fixed;
@@ -56,7 +140,12 @@
     background: url(../pics/login-pic.jpg);
     background-color: #102166;
 }
+<<<<<<< HEAD
 .center-box{
+=======
+
+.center-box, .inputContainerRegister{
+>>>>>>> f24ef2707a2ea8447016d2a67cecf2528621e809
     position: absolute;
     top:50%;
     left:50%;
@@ -92,7 +181,16 @@
 }
 .buttonstyle{
     background-color:#FF8C32;
+<<<<<<< HEAD
     border-radius: 50px;
     width:100px;
 }
+=======
+    border-radius: 0.62rem;
+    padding: 1em 2em;
+    width:auto;
+    display: inline-block;
+    color: white;
+    }
+>>>>>>> f24ef2707a2ea8447016d2a67cecf2528621e809
 /*estilos newsfeed/*
