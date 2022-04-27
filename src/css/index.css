@@ -15,7 +15,7 @@
 
 .home-container{
     background-image:linear-gradient(120deg, rgba(64, 58, 64, 0.699) 0%, rgba(95, 39, 46, 0.692) 100%),
-     url('../pics/welcome-pic.jpg');        
+    url('../pics/welcome-pic.jpg');        
     background-position:center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -69,12 +69,11 @@
     font-size: 28px;
     position : absolute;
     top: 80%;
-    left: 40%; 
+    left: 40%;
     font-family: 'Righteous', cursive;
     width:auto;
     display: inline-block;
     margin: 0px 0 0 50px;
-    
 }
 
 .buttonhomeorange a{
