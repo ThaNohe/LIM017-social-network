@@ -1,4 +1,4 @@
-import { registerWithEmail } from '../lib/authFunctions.js';
+import { registerWithEmail, emailVerification } from '../lib/authFunctions.js';
 
 const registerDisplay = () => {
   const registerPage = `
@@ -35,6 +35,7 @@ const registerDisplay = () => {
     const registerPasswordValue = document.getElementById('inputPassword').value;
     console.log(userValue, registerEmailValue, registerPasswordValue);
     registerWithEmail(registerEmailValue, registerPasswordValue);
+    emailVerification(registerEmailValue);
     return signUpForm;
   });
   return divElement;
