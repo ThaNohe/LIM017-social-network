@@ -20,23 +20,9 @@ export const registerWithEmail = (email, password) => {
     });
 };
 
-//auth del login usuario ya registrado,por revisar
+/* 1-auth del login usuario ya registrado
 
-export const signInWithEmailAndPassword =(auth, loginEmail, loginPassword) => {
-  signInWithEmailAndPassword(auth, loginEmail, loginPassword)
-.then((userCredential) => {
-   const user = userCredential.user;
-  })
- .catch((error) => {
-   const errorCode = error.code;
-   const errorMessage = error.message;
-console.log(error);
- });
-};
-
-
-
-/* //auth del login usuario nuevo crea cuenta
+2-auth del login usuario nuevo crea cuenta
 document.getElementById("register-btn").addEventListener('click', function(){
 
     const registerEmail= document.getElementById("register-email").value;
