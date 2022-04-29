@@ -12,6 +12,7 @@
     --color-profile: #FF8C32;
     --color-background-body: #f7f7f7;
     --color-text: #06113C;
+    ---color-transparent: gray;
 }
 
 .home-container {
@@ -80,68 +81,91 @@
     color: white;
 }
 
-*/
+
 /*estilos paginas de registro*/
 
-.loginBackgr {
-    background-image: linear-gradient(120deg, rgba(64, 58, 64, 0.699) 0%, rgba(95, 39, 46, 0.692) 100%);
-    font-family: 'Righteous', cursive;
+.login-page, .register-page {
+    background-image: linear-gradient(120deg, rgba(64, 58, 64, 0.699) 0%, rgba(49, 41, 50, 0.95) 100%),
+    url('../pics/loginBackground.jpg');
     height: 100vh;
-    width: 100%;
-    color: #ffc0cb;
+    font-family: 'Righteous', cursive;
     background-position: center;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
     background-size: cover;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.loginPage {
-    background: url(../pics/login-pic.jpg);
-    background-color: #102166;
-}
-
-.center-box, .inputContainerRegister {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.center-box, .register-page-container {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border: 2px solid white;
     border-radius: 40px;
-    width: 300px;
-    height: 320px;
-    text-align: center;
+    width: 325px;
+    height: 500px;
     color: white;
 }
+.title-login-register{
+    color: #FF8C32;
+    font-family: 'Righteous', cursive;
+    font-size: 40px;
+    -webkit-text-stroke: 0.1px black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.login-subtitle{
+    color:var(--color-text);
+    line-height: 2rem;
+}
 
-.logoGoogle {
+.text-field{
+    border:2px solid var(--color-border) ;
+    border-radius: 4px;
+    width: 271px;
+    height: 41px;
+    padding: 8px;
+    margin: 5px;
+}
+.logo-google {
     size: 5px;
-    height: fit-content;
-    width: 50px;
+    width: 26px;
+    display: inline-block;
 }
 
-.logoUser {
-    width: fit-content;
-    height: 200px;
-    border-radius: 50%;
-    border: 10px solid;
-    border-color: #102166;
-    text-align: center;
-    background: center no-repeat;
+.logo-user{
+    height: 118px;
+    width:98px;
+    margin-top: 15px;
 }
 
-/* estilos boton registro */
-.buttonstyle a {
+/* estilos boton registro*/
+.button-login-orange a {
     text-decoration: none;
     color: white;
 }
 
-.buttonstyle {
+.button-login-orange {
     background-color: #FF8C32;
     border-radius: 0.62rem;
-    padding: 1em 2em;
-    width: auto;
-    display: inline-block;
+    border-color: transparent;
+    padding: 1rem 2rem;
+    color: white;
+    height:46px;
+    align-items:center;
+    display:flex;
+    font-family: 'Righteous', cursive;
+    margin:8px;
+    width: 15rem;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.link-nextpage a{
+    text-decoration: none;
     color: white;
 }
 
@@ -226,49 +250,101 @@ nav {
 /* Responsive for desktop */
 
 @media screen and (min-width: 768px) {
-    .home-container {
-        background-image: linear-gradient(120deg, rgb(0 0 0 / 70%) 0%, rgb(0 0 0 / 69%) 100%),
-            url(../img/6314.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
-        width: 100vw;
+
+    /*estilos media query paginas de registro*/
+    .login-page, .register-page {
+        background-image:url('../pics/fondo-login-register.png');
         height: 100vh;
-        display: flex;
+        font-family: 'Righteous', cursive;
+        background-position: center;
+        background-size: cover;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .center-box, .register-page-container {
+        display:flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        border-radius: 40px;
+        width: 350px;
+        height: 600px;
+        background-color: #ffffffe6;
+        color: var(--color-border);
     }
 
-    .title-home {
+    .title-login-register{
         color: #FF8C32;
         font-family: 'Righteous', cursive;
-        font-size: 60px;
-    }
-
-    .img-logo-home {
+        font-size: 40px;
         display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+.login-subtitle{
+    color:var(--color-text);
+    line-height: 2rem;
+}
+    .text-field{
+        border:1px solid var(--color-border);
+        border-radius: 4px;
+        width: 271px;
+        height: 41px;
+        padding: 8px;
+        margin: 5px;
+    }
+    .logo-google {
+        size: 5px;
+        width: 26px;
+        display: inline-block;
+        padding: 5px;
+    }
+    
+    .logo-user{
+        height: 118px;
+        width:98px;
+        margin-top: 15px;
     }
 
-    .img-cerezo {
-        width: 100px;
+    /* estilos boton registro*/
+    .button-login-orange a {
+        text-decoration: none;
+        color: white;
     }
-
-    .text-welcome {
-        font-size: 24px;
-        background-color: #AEE5E2;
-        width: 515px;
-        padding: 10px;
-        text-align: center;
+    .button-login-orange {
+        background-color: #FF8C32;
+        border-radius: 0.62rem;
+        border-color: transparent;
+        padding: 1rem 2rem;
+        color: white;
+        height:46px;
+        align-items:center;
+        display:flex;
+        font-family: 'Righteous', cursive;
+        margin:8px;
+        width: 15rem;
+        cursor: pointer;
+        justify-content: center;
     }
-
-    .btn-join {
-        font-size: 15px;
-        margin: 45px;
-        padding: 6px;
+    .link-nextpage a {
+        text-decoration: underline;
+        color: var(--color-text);
+        padding:25px;
+        margin:15px;
+        font-size: 12px;
     }
+.line-google{
+    display:flex;
+    flex-direction: column;
+    margin: 10px;
+    color: var(---color-transparent);
+}
 
-    /*Estilos Desktop newsfeed*/
+
+     /*Estilos Desktop newsfeed*/
     .header-nav {
         position: static;
     }
