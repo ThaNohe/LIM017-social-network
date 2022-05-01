@@ -23,14 +23,32 @@ const registerDisplay = () => {
   const divElement = document.createElement('div');
   divElement.innerHTML = registerPage;
 
-  const signUpForm = divElement.querySelector('#btnRegister').addEventListener('click', (e) => {
+  /* const signUpForm =  */divElement.querySelector('#btnRegister').addEventListener('click', (e) => {
     e.preventDefault();
     const userValue = document.getElementById('inputName').value;
     const registerEmailValue = document.getElementById('inputEmail').value;
     const registerPasswordValue = document.getElementById('inputPassword').value;
     console.log(userValue, registerEmailValue, registerPasswordValue);
-    registerWithEmail(registerEmailValue, registerPasswordValue);
-    return signUpForm;
+
+    registerWithEmail(registerEmailValue, registerPasswordValue)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      console.log(user);
+      // ...
+      return user;
+    })
+    .then((user) => {
+      console.log(user);
+      sendEmailVerificationFirebase();
+    .catch((error) => {
+      const errorCode = error.code;
+      console.log(errorCode)
+      const errorMessage = error.message;
+      console.log(errorMessage);
+      // ..
+    });
+    /* return signUpForm; */
   });
   return divElement;
 };

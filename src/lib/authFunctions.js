@@ -1,24 +1,30 @@
 // eslint-disable-next-line import/no-unresolved
-import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword,sendEmailVerification} from 'https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js';
 import { app } from './config.js';
 
 const auth = getAuth(app);
 
-export const registerWithEmail = (email, password) => {
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      console.log(user);
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(error);
-      // ..
+export const registerWithEmail = (email, password) => (
+  createUserWithEmailAndPassword(auth, email, password));
+  /* export const sendEmailVerificationFirebase = () => {
+  sendEmailVerification(auth.currentUser)
+    .then(() => {
+    // Email verification sent!
+    // ...
     });
-};
+}; */
+
+export const sendEmailVerificationFirebase = () => {
+  sendEmailVerification(auth.currentUser)
+    .then(() => {
+      // eslint-disable-next-line no-alert
+      alert('Ya se envio tu correo de verificación');
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+  // eslint-disable-next-line semi
+}
 
 /* //auth del login usuario nuevo crea cuenta
 document.getElementById("register-btn").addEventListener('click', function(){
