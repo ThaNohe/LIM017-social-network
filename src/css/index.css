@@ -75,7 +75,7 @@
 /*estilos paginas de registro*/
 
 .login-page, .register-page {
-    background-image: url('../pics/loginBackground.jpg');
+    background-image: url('../pics/fondo-login-register.png');
     height: 100vh;
     font-family: 'Righteous', cursive;
     background-position: center;
@@ -91,16 +91,13 @@
     justify-content: center;
     align-items: center;
     border-radius: 40px;
-    width: 350px;
-    height: 600px;
+    width: 313px;
+    height: 557px;
     background-color: var(--color-background-center-box);
-    color: var(--color-border);
 }
 .title-login-register{
     color: #FF8C32;
-    font-family: 'Righteous', cursive;
-    font-size: 40px;
-    -webkit-text-stroke: 0.1px black;
+    font-size: 31px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -112,14 +109,14 @@
 }
 
 .text-field{
-    border:2px solid var(--color-border) ;
+    border:1px solid var(--color-border) ;
     border-radius: 4px;
-    width: 271px;
-    height: 41px;
-    padding: 8px;
-    margin: 5px;
+    width: 238px;
+    height: 38px;
+    padding: 9px;
+    margin: 4px;
 }
-.logo-google {
+.icon-users {
     size: 5px;
     width: 26px;
     display: inline-block;
@@ -127,11 +124,13 @@
 }
 
 .logo-user{
-    height: 118px;
-    width:98px;
+    height: 104px;
+    width: 85px;
     margin-top: 15px;
 }
-
+.logo-google{
+    width: 24px;
+}
 /* estilos boton registro*/
 .button-login-orange a {
     text-decoration: none;
@@ -142,13 +141,12 @@
     background-color: #FF8C32;
     border-radius: 0.62rem;
     border-color: transparent;
-    padding: 1rem 2rem;
     color: white;
     height:46px;
     align-items:center;
     display:flex;
     font-family: 'Righteous', cursive;
-    margin:8px;
+    margin:6px;
     width: 15rem;
     cursor: pointer;
     justify-content: center;
@@ -158,7 +156,7 @@
     text-decoration: underline;
     color: var(--color-text);
     padding:25px;
-    margin:15px;
+    
     font-size: 12px;
 }
 .line-google{
@@ -328,8 +326,8 @@ nav {
     }
 
     /*estilos media query paginas de registro*/
-    .login-page, .register-page {
-        background-image:url('../pics/fondo-login-register.png');
+    .login-page, 
+    .register-page {
         height: 100vh;
         font-family: 'Righteous', cursive;
         background-position: center;
@@ -373,11 +371,15 @@ nav {
         padding: 8px;
         margin: 5px;
     }
-    .logo-google {
+    .icon-users {
         size: 5px;
         width: 26px;
         display: inline-block;
         padding: 5px;
+    }
+    /*modificar*/
+    .logo-google{
+        width: 24px;
     }
     .logo-user{
         height: 118px;
