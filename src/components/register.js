@@ -22,7 +22,7 @@ const registerDisplay = () => {
         <input type='password' id='inputPassword' class='text-field' placeholder='Contraseña' required>
         <p id='passError' class='error'></p>
         </div>
-        <button id='btnRegister' class='button-login-orange'><a href='#/news'>Registrate ahora</a></button>
+        <button id='btnRegister' class='button-login-orange'>Registrate ahora</button>
         <p class='link-nextpage'><a href='#/login'>¿Ya tienes una cuenta? Iniciar Sesión</a></p>
         <div class="line-google"><span> o </span></div>
         <div class='login-page__form-google'>
@@ -56,6 +56,7 @@ const registerDisplay = () => {
         sendEmailVerificationFirebase();
         // eslint-disable-next-line no-alert
         alert('Ya se envio tu correo de verificación');
+        window.location.href = '#/login';
       })
       .catch((error) => {
         const errorCode = error.code;
