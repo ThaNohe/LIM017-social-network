@@ -1,3 +1,5 @@
+// import { signInWithEmailAndPassword } from '../lib/authFunctions.js';
+
 const loginDisplay = () => {
   const loginPage = `
   <section class= 'login-page'>
@@ -10,7 +12,7 @@ const loginDisplay = () => {
   <p id='emptyInputPass' class='error'></p>
   <button id='loginBtn' class='button-login-orange'><a href='#/news'> Ingresar</a> </button> <br>
   <p class='link-nextpage'><a href='#/register'>¿Eres nuevo por aquí? Registrate ahora</a></p>
-  <p class=" line-google"> —————— o ——————  </p> 
+  <div class="line-google"><span> o </span></div>
   <div class='login-page__form-google'>
   <button class='button-login-orange'>Ingresa con tu cuenta
   <img src='./pics/google-icon.png' class='logo-google' id='googleImgLogIn'>
@@ -28,7 +30,7 @@ const loginDisplay = () => {
     const loginEmailValue = document.getElementById('login-email').value;
     const loginPasswordValue = document.getElementById('login-password').value;
     console.log(loginEmailValue, loginPasswordValue);
-    signInWithEmailAndPassword(loginEmailValue, loginPasswordValue);
+    // signInWithEmailAndPassword(loginEmailValue, loginPasswordValue);
     return loginForm;
   });
   return divElement;

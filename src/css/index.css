@@ -12,6 +12,7 @@
     --color-profile: #FF8C32;
     --color-background-body: #f7f7f7;
     --color-text: #06113C;
+    --color-background-center-box:#ffffffe6;
     ---color-transparent: gray;
 }
 
@@ -74,8 +75,7 @@
 /*estilos paginas de registro*/
 
 .login-page, .register-page {
-    background-image: linear-gradient(120deg, rgba(64, 58, 64, 0.699) 0%, rgba(49, 41, 50, 0.95) 100%),
-    url('../pics/loginBackground.jpg');
+    background-image: url('../pics/loginBackground.jpg');
     height: 100vh;
     font-family: 'Righteous', cursive;
     background-position: center;
@@ -90,11 +90,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid white;
     border-radius: 40px;
-    width: 325px;
-    height: 500px;
-    color: white;
+    width: 350px;
+    height: 600px;
+    background-color: var(--color-background-center-box);
+    color: var(--color-border);
 }
 .title-login-register{
     color: #FF8C32;
@@ -123,6 +123,7 @@
     size: 5px;
     width: 26px;
     display: inline-block;
+    padding: 5px;
 }
 
 .logo-user{
@@ -154,8 +155,27 @@
 }
 
 .link-nextpage a{
-    text-decoration: none;
-    color: white;
+    text-decoration: underline;
+    color: var(--color-text);
+    padding:25px;
+    margin:15px;
+    font-size: 12px;
+}
+.line-google{
+    width: 150px;
+    height: 1px;
+    margin: 32px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:gray;
+}
+
+.line-google span{
+    padding-left: 16px;
+    padding-right: 16px;
+    text-transform: uppercase;
+    background-color:  var(--color-background-center-box);
 }
 
 /*Estilos newsfeed */
@@ -327,7 +347,7 @@ nav {
         border-radius: 40px;
         width: 350px;
         height: 600px;
-        background-color: #ffffffe6;
+        background-color: var(--color-background-center-box);
         color: var(--color-border);
     }
 
@@ -335,6 +355,7 @@ nav {
         color: #FF8C32;
         font-family: 'Righteous', cursive;
         font-size: 40px;
+        -webkit-text-stroke: 0.1px black;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -358,7 +379,6 @@ nav {
         display: inline-block;
         padding: 5px;
     }
-    
     .logo-user{
         height: 118px;
         width:98px;
@@ -392,12 +412,21 @@ nav {
         margin:15px;
         font-size: 12px;
     }
-.line-google{
-    display:flex;
-    flex-direction: column;
-    margin: 10px;
-    color: var(---color-transparent);
-}
+    .line-google{
+        width: 150px;
+        height: 1px;
+        margin: 32px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color:gray;
+    }
+    .line-google span{
+    padding-left: 16px;
+    padding-right: 16px;
+    text-transform: uppercase;
+    background-color:  var(--color-background-center-box);
+    }
 
 
      /*Estilos Desktop newsfeed*/
