@@ -1,4 +1,4 @@
-import { loginWithEmail } from '../lib/authFunctions.js';
+import { loginWithEmail, signGoogle } from '../lib/authFunctions.js';
 
 const loginDisplay = () => {
   const loginPage = `
@@ -16,7 +16,7 @@ const loginDisplay = () => {
         <p class='link-nextpage'><a href='#/register'>¿Eres nuevo por aquí? Registrate ahora</a></p>
         <div class="line-google"><span> o </span></div>
         <div class='login-page__form-google'>
-            <button class='button-login-orange'>Ingresa con tu cuenta
+            <button class='button-login-orange' id= 'loginGoogle'>Ingresa con tu cuenta
                 <img src='./pics/google-icon.png' class='logo-google' id='googleImgLogIn'>
             </button>
         </div>
@@ -48,6 +48,26 @@ const loginDisplay = () => {
         console.log(errorMessage);
       });
   });
+
+  divElement.querySelector('#loginGoogle').addEventListener('click', () => {
+    signGoogle() // agregar dirección de pag luego de googlearse
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        const user = result.user;
+        window.location.href = '#/news';
+      }).catch((error) => {
+      // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+      });
+  });
+
   return divElement;
 };
 export default loginDisplay;
