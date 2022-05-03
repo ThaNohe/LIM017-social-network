@@ -1,4 +1,4 @@
-import { singGoogle } from '../lib/authFunctions.js';
+import { signGoogle } from '../lib/authFunctions.js';
 
 const loginDisplay = () => {
   const loginPage = `
@@ -30,11 +30,6 @@ const loginDisplay = () => {
     const loginEmailValue = document.getElementById('login-email').value;
     const loginPasswordValue = document.getElementById('login-password').value;
     console.log(loginEmailValue, loginPasswordValue);
-  });
-
-  // Login with Google
-  divElement.querySelector('#loginGoogle').addEventListener('click', () => {
-    singGoogle(); //agregar dirección de pag luego de googlearse
   });
 
   return divElement;

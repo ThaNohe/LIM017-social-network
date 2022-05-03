@@ -16,6 +16,6 @@ export const sendEmailVerificationFirebase = () => (
   signEmailAndPasword(auth, login-email, login-password)); */
 
 // auth con google
-export const singGoogle = () => (
+export const signGoogle = () => (
   signInWithPopup(auth, provider)
 );
