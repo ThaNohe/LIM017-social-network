@@ -18,7 +18,7 @@
 
 /*Mobile First*/
 .home-container {
-    background-image: linear-gradient(120deg, rgba(64, 58, 64, 0.699) 0%, rgba(95, 39, 46, 0.692) 100%),
+    background-image: linear-gradient(120deg, rgba(64, 58, 64, 0.699) 0%, rgb(39 43 95 / 41%) 100%),
         url('../pics/City2.jpg');
     width: 100vw;
     height: 100vh;
@@ -31,7 +31,7 @@
 .title-home {
     color: #FF8C32;
     font-family: 'Righteous', cursive;
-    font-size: 100px;
+    font-size: 44px;
     -webkit-text-stroke: 0.1px black;
     flex-direction: row;
     justify-content: center;
@@ -44,15 +44,16 @@
 .flower-title {
     width: 90px;
     height: 90px;
+    display: none;
 }
 
 .intro-box {
     background-color: #0B1437;
     color: white;
-    font-family: 'Quantico', cursive;
+    font-family: sans-serif;
     text-align: center;
     align-items: center;
-    width: 360px;
+    width: 289px;
     border-radius: 20px;
     padding: 14px;
     margin: 60px;
@@ -86,13 +87,13 @@
 }
 
 .center-box, .register-page-container {
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 40px;
-    width: 313px;
-    height: 557px;
+    width: 305px;
+    height: 549px;
     background-color: var(--color-background-center-box);
 }
 .title-login-register{
@@ -108,19 +109,32 @@
     line-height: 2rem;
 }
 
+.icon-container {
+    position: absolute;
+    margin-top: -70px;
+    margin-right: 201px;
+}
+
+.icon-email-container{
+    position: absolute;
+    margin-top: 21px;
+    margin-right: 202px;
+}
+.icon-password-container{
+    position: absolute;
+    margin-top: 110px;
+    margin-right: 200px;
+}
 .text-field{
     border:1px solid var(--color-border) ;
     border-radius: 4px;
     width: 238px;
     height: 38px;
-    padding: 9px;
+    padding: 9px 30px;
     margin: 4px;
 }
 .icon-users {
-    size: 5px;
     width: 26px;
-    display: inline-block;
-    padding: 5px;
 }
 
 .logo-user{
@@ -142,12 +156,12 @@
     border-radius: 0.62rem;
     border-color: transparent;
     color: white;
-    height:46px;
-    align-items:center;
-    display:flex;
+    height: 39px;
+    align-items: center;
+    display: flex;
     font-family: 'Righteous', cursive;
-    margin:6px;
-    width: 15rem;
+    margin: 6px;
+    width: 12rem;
     cursor: pointer;
     justify-content: center;
 }
@@ -155,8 +169,6 @@
 .link-nextpage a{
     text-decoration: underline;
     color: var(--color-text);
-    padding:25px;
-    
     font-size: 12px;
 }
 .line-google{
@@ -260,25 +272,27 @@ nav {
 
     /*Estilos home*/
     .home-container {
-        background-image: linear-gradient(120deg, rgba(64, 58, 64, 0.699) 0%, rgba(95, 39, 46, 0.692) 100%),
-            url('../pics/City2.jpg');
+        background-image: linear-gradient(120deg, rgba(64, 58, 64, 0.699) 0%, rgb(39 43 95 / 41%) 100%), url(../pics/City2.jpg);
+        height: 100vh;
+        /* display: flex; */
+        /* flex-direction: column; */
+        /* justify-content: center; */
+        /* align-items: center; */
+        /* background: no-repeat; */
+        /* background-repeat: no-repeat; */
         background-position: center;
         background-size: cover;
-        width: 100vw;
-        height: 100vh;
-        display: flex; 
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
     }
+    
     .title-home {
-        color: #FF8C32;
-        font-family: 'Righteous', cursive;
-        -webkit-text-stroke: 1px black;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
+            /* color: #FF8C32; */
+    /* font-family: 'Righteous', cursive; */
+    /* -webkit-text-stroke: 1px black; */
+    display: flex;
+    /* flex-direction: row; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    font-size: 72px;
     }
 
     .welcome-title{
@@ -286,22 +300,22 @@ nav {
     }
     
     .flower-title {
-        width: 100px;
-        height: 100px;
-        display: inline-block;
-        margin: 0px 0 0 50px;
+        width: 90px;
+        height: 90px;
+        display: block;
+        margin: 0px 0 0 3px;
     }
     
     .intro-box {
-        background-color: #0B1437;
-        color: white;
-        font-family: 'Quantico', cursive;
-        text-align: center;
-        align-items: center;
-        width: 460px;
-        border-radius: 20px;
-        padding: 14px;
-        font-size: 18px;
+        /* background-color: #0B1437; */
+    /* color: white; */
+    /* font-family: 'Quantico', cursive; */
+    /* text-align: center; */
+    /* align-items: center; */
+    width: 499px;
+    /* border-radius: 20px; */
+    /* padding: 14px; */
+    font-size: 18px;
     }
     
     .buttonhomeorange {
@@ -359,24 +373,36 @@ nav {
         justify-content: center;
         align-items: center;
     }
-.login-subtitle{
+
+    .login-subtitle{
     color:var(--color-text);
     line-height: 2rem;
-}
+    }
+
+    .icon-container {
+        position: absolute;
+        margin-top: -75px;
+        margin-right: 224px;
+    }
+
+    .icon-email-container{
+        position: absolute;
+        margin-top: 25px;
+        margin-right: 224px;
+    }
+    .icon-password-container{
+        position: absolute;
+        margin-top: 115px;
+        margin-right: 224px;
+    }
+    
     .text-field{
         border:1px solid var(--color-border);
         border-radius: 4px;
         width: 271px;
-        height: 41px;
-        padding: 8px;
-        margin: 5px;
+        padding: 19px 35px;
     }
-    .icon-users {
-        size: 5px;
-        width: 26px;
-        display: inline-block;
-        padding: 5px;
-    }
+    
     /*modificar*/
     .logo-google{
         width: 24px;

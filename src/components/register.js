@@ -7,21 +7,24 @@ const registerDisplay = () => {
         <h2 class='title-login-register'>ANIME GANG</h2>
         <img src='./pics/nekko-mascot.png' class='logo-user' id='userPic'> <br>
         <p class='login-subtitle'> Registra tus datos </p>
-       
-        <img src='./pics/user.png' class='icon-users'>
+        <div class='icon-container'>
+          <i class="fa-solid fa-user"></i>
+        </div>
         <input type='text' id='inputName' class='text-field' placeholder='Nombre'>
         <p id='emptyInputName' class='error'></p>
         
-        <div>    
-        <img src='./pics/email.png' class='icon-users'>   
+        <div class='icon-email-container'>
+        <i class="fa-solid fa-at"></i>
+        </div>
         <input type='email' id='inputEmail' class='text-field' placeholder='Correo electrónico' required>
         <p id='errorEmail' class='error'></p>
+        
+        <div class='icon-password-container'>
+        <i class="fa-solid fa-lock"></i>
         </div>
-        <div>
-        <img src='./pics/lock.png' class='icon-users'>
         <input type='password' id='inputPassword' class='text-field' placeholder='Contraseña' required>
         <p id='passError' class='error'></p>
-        </div>
+        
         <button id='btnRegister' class='button-login-orange'>Registrate ahora</button>
         <p class='link-nextpage'><a href='#/login'>¿Ya tienes una cuenta? Iniciar Sesión</a></p>
         <div class="line-google"><span> o </span></div>
