@@ -39,23 +39,24 @@ const registerDisplay = () => {
     console.log(userValue, registerEmailValue, registerPasswordValue);
 
     registerWithEmail(registerEmailValue, registerPasswordValue)
-    .then((userCredential) => {
+      .then((userCredential) => {
       // Signed in
-      const user = userCredential.user;
-      console.log(user);
-      // ...
-      return user;
-    })
-    .then((user) => {
-      console.log(user);
-      sendEmailVerificationFirebase();
-    .catch((error) => {
-      const errorCode = error.code;
-      console.log(errorCode)
-      const errorMessage = error.message;
-      console.log(errorMessage);
+        const user = userCredential.user;
+        console.log(user);
+        // ...
+        return user;
+      })
+      .then((user) => {
+        console.log(user);
+        sendEmailVerificationFirebase();
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        console.log(errorCode);
+        const errorMessage = error.message;
+        console.log(errorMessage);
       // ..
-    });
+      });
     /* return signUpForm; */
   });
   return divElement;
