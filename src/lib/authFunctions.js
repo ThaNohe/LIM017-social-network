@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-unresolved
 import {
-  getAuth, createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider,
+  getAuth, createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword,
+  signInWithPopup, GoogleAuthProvider,
 // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js';
 import { app } from './config.js';
@@ -23,7 +24,7 @@ export const loginWithEmail = (email, password) => (
   signInWithEmailAndPassword(auth, email, password));
 
 // auth con google
-const provider = new GoogleAuthProvider();
+export const provider = new GoogleAuthProvider();
 
 export const signGoogle = () => (
   signInWithPopup(auth, provider)

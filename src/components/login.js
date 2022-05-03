@@ -31,7 +31,6 @@ const loginDisplay = () => {
     e.preventDefault();
     const loginEmailValue = document.getElementById('login-email').value;
     const loginPasswordValue = document.getElementById('login-password').value;
-    console.log(loginEmailValue, loginPasswordValue);
     loginWithEmail(loginEmailValue, loginPasswordValue)
       .then((userCredential) => {
       // Signed in
@@ -51,24 +50,11 @@ const loginDisplay = () => {
 
   divElement.querySelector('#loginGoogle').addEventListener('click', () => {
     signGoogle() // agregar dirección de pag luego de googlearse
-      .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        const user = result.user;
+      .then(() => {
         window.location.href = '#/news';
-      }).catch((error) => {
-      // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-      // ...
       });
   });
 
   return divElement;
 };
 export default loginDisplay;
-console.log(loginDisplay);
