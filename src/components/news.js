@@ -1,6 +1,7 @@
-export default () => {
-  const newsFeed = `
+import { signOut } from '../lib/authFunctions.js';
 
+const newsDisplay = () => {
+  const newsFeed = `
   <section class="header">
         <nav class="header-nav">
             <div class="logos-container">
@@ -14,10 +15,8 @@ export default () => {
 
                 <input type="search" class="search-nav" id="search" placeholder="Search...">
 
-                <div for="check" class="search">
-                    <a href="#/home">
+                <div for="check" class="search" id="logOut">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                    </a>
                 </div>
             </div>
         </nav>
@@ -83,5 +82,13 @@ export default () => {
     `;
   const divElement = document.createElement('div');
   divElement.innerHTML = newsFeed;
-  return divElement;
+  divElement.querySelector('#logOut').addEventListener('click', (e) => {
+    e.preventDefault();
+    signOut()
+      .then(() => {
+        window.location.href = '#/home';
+      });
+    return divElement;
+  });
 };
+export default newsDisplay;
