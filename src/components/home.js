@@ -4,7 +4,7 @@ export default () => {
 
   <div class="home-container">
   <div class="title-home">
-  <h1 class="welcome-title-animegang">ANIME GANG</h1>
+  <h1 class="welcome-title">ANIME GANG</h1>
   <img src="./pics/flower.png" alt="flowerInPage" class="flower-title">
   </div>
   <div class="intro-box" >

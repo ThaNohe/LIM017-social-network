@@ -22,9 +22,6 @@ export const sendEmailVerificationFirebase = () => (
 export const loginWithEmail = (email, password) => (
   signInWithEmailAndPassword(auth, email, password));
 
-export const signOut = () => (
-  signOut(auth));
-
 /* signInWithEmailAndPassword(auth, login-email, login-password)
   .then((userCredential) => {
     const user = userCredential.user;
