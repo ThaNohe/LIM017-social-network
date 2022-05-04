@@ -70,24 +70,22 @@ const newsDisplay = () => {
 
             <div class="post-container">
                 <input type="text" class="post-text" placeholder="¿Qué estas pensando?">
-                <div class="button-post"> 
+                <div class="button-post">
                     <button class="post-comment">Publicar</button>
                 </div>
-                
-            </div>
-
+                </div>
         </section>
     </div>
 
     `;
   const divElement = document.createElement('div');
   divElement.innerHTML = newsPage;
-//   divElement.querySelector('#logOut').addEventListener('click', () => {
-//     signOut()
-//       .then(() => {
-//         window.location.href = '#/home';
-//       });
-  // return divElement;
+  //   divElement.querySelector('#logOut').addEventListener('click', () => {
+  //     signOut()
+  //       .then(() => {
+  //         window.location.href = '#/home';
+  //       });
+  return divElement;
 //   });
 };
 export default newsDisplay;
