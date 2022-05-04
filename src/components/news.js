@@ -5,7 +5,7 @@ const newsDisplay = () => {
   <section class="header">
         <nav class="header-nav">
             <div class="logos-container">
-                <img src="../img/logo-news.png" alt="logo" class="logo">
+                <img src="../pics/logo-news.png" alt="logo" class="logo">
             </div>
 
             <div class="nav-containaer">
@@ -16,7 +16,9 @@ const newsDisplay = () => {
                 <input type="search" class="search-nav" id="search" placeholder="Search...">
 
                 <div for="check" class="search" id="logOut">
+                <a href="#/home">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    </a>
                 </div>
             </div>
         </nav>
