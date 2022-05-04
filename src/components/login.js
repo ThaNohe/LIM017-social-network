@@ -54,7 +54,6 @@ const loginDisplay = () => {
         window.location.href = '#/news';
       });
   });
-
   return divElement;
 };
 export default loginDisplay;
