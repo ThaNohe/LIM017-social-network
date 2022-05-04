@@ -1,4 +1,4 @@
-// import { signOut } from '../lib/authFunctions';
+//import { signOutFirebase } from '../lib/authFunctions';
 
 const newsDisplay = () => {
   const newsPage = `
@@ -16,9 +16,7 @@ const newsDisplay = () => {
                 <input type="search" class="search-nav" id="search" placeholder="Search...">
 
                 <div for="check" class="search" id="logOut">
-                <a href="#/home">
-                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                    </a>
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 </div>
             </div>
         </nav>
@@ -82,12 +80,13 @@ const newsDisplay = () => {
     `;
   const divElement = document.createElement('div');
   divElement.innerHTML = newsPage;
-  //   divElement.querySelector('#logOut').addEventListener('click', () => {
-  //     signOut()
-  //       .then(() => {
-  //         window.location.href = '#/home';
-  //       });
+  /* divElement.querySelector('#logOut').addEventListener('click', () => {
+    signOutFirebase()
+      .then(() => {
+        window.location.href = '#/home';
+      });
+    }); */
   return divElement;
-//   });
 };
+
 export default newsDisplay;
