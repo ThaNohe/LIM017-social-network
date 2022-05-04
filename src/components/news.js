@@ -1,7 +1,7 @@
-import { signOut } from '../lib/authFunctions.js';
+// import { signOut } from '../lib/authFunctions';
 
 const newsDisplay = () => {
-  const newsFeed = `
+  const newsPage = `
   <section class="header">
         <nav class="header-nav">
             <div class="logos-container">
@@ -70,25 +70,22 @@ const newsDisplay = () => {
 
             <div class="post-container">
                 <input type="text" class="post-text" placeholder="¿Qué estas pensando?">
-                <div class="button-post"> 
+                <div class="button-post">
                     <button class="post-comment">Publicar</button>
                 </div>
-                
-            </div>
-
+                </div>
         </section>
     </div>
 
     `;
   const divElement = document.createElement('div');
-  divElement.innerHTML = newsFeed;
-  divElement.querySelector('#logOut').addEventListener('click', (e) => {
-    e.preventDefault();
-    signOut()
-      .then(() => {
-        window.location.href = '#/home';
-      });
-    return divElement;
-  });
+  divElement.innerHTML = newsPage;
+  //   divElement.querySelector('#logOut').addEventListener('click', () => {
+  //     signOut()
+  //       .then(() => {
+  //         window.location.href = '#/home';
+  //       });
+  return divElement;
+//   });
 };
 export default newsDisplay;

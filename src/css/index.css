@@ -318,22 +318,6 @@ nav {
     font-size: 18px;
     }
     
-    .buttonhomeorange {
-        background-color: #FF8C32;
-        border-radius: 30px;
-        padding: 4px 64px;
-        text-align: center;
-        text-decoration: none;
-        font-size: 28px;
-        position: absolute;
-        top: 80%;
-        left: 40%;
-        font-family: 'Righteous', cursive;
-        width: auto;
-        display: inline-block;
-        margin: 0px 0 0 50px;
-    }
-    
     .buttonhomeorange a {
         text-decoration: none;
         color: white;
