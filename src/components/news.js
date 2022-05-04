@@ -1,4 +1,4 @@
-import { signOut } from '../lib/authFunctions';
+// import { signOut } from '../lib/authFunctions';
 
 const newsDisplay = () => {
   const newsPage = `
@@ -82,12 +82,12 @@ const newsDisplay = () => {
     `;
   const divElement = document.createElement('div');
   divElement.innerHTML = newsPage;
-  divElement.querySelector('#logOut').addEventListener('click', () => {
-    signOut()
-      .then(() => {
-        window.location.href = '#/news';
-      });
-    return divElement;
-  });
+//   divElement.querySelector('#logOut').addEventListener('click', () => {
+//     signOut()
+//       .then(() => {
+//         window.location.href = '#/home';
+//       });
+  // return divElement;
+//   });
 };
 export default newsDisplay;
