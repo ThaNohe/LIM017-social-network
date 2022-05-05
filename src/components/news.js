@@ -1,4 +1,4 @@
-//import { signOutFirebase } from '../lib/authFunctions';
+import { signOutFirebase } from '../lib/authFunctions.js';
 
 const newsDisplay = () => {
   const newsPage = `
@@ -80,12 +80,12 @@ const newsDisplay = () => {
     `;
   const divElement = document.createElement('div');
   divElement.innerHTML = newsPage;
-  /* divElement.querySelector('#logOut').addEventListener('click', () => {
+  divElement.querySelector('#logOut').addEventListener('click', () => {
     signOutFirebase()
       .then(() => {
         window.location.href = '#/home';
       });
-    }); */
+  });
   return divElement;
 };
 

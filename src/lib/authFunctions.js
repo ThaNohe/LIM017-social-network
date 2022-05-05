@@ -1,7 +1,7 @@
 import {
   getAuth, createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword,
-  signInWithPopup, GoogleAuthProvider,
- // eslint-disable-next-line import/no-unresolved
+  signInWithPopup, GoogleAuthProvider, signOut,
+  // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js';
 import { app } from './config.js';
 
@@ -34,3 +34,7 @@ export const signGoogle = () => (
   const auth1 = getAuth();
   return signOut(auth1);
 }; */
+
+export const signOutFirebase = () => {
+  return signOut(auth);
+};

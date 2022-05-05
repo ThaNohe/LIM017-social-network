@@ -6,6 +6,8 @@ import register from './components/register.js';
 
 import newsFeed from './components/news.js';
 
+import registerFirebase from './lib/controller.js';
+
 const components = {
   Home: home,
   Login: login,
@@ -24,7 +26,7 @@ export const changeView = (route) => {
     case '#/login':
     { return container.appendChild(components.Login()); }
     case '#/register':
-    { return container.appendChild(components.Register()); }
+    { return (container.appendChild(components.Register())) && (registerFirebase()); }
     case '#/news':
     { return container.appendChild(components.Newsfeed()); }
     default:
