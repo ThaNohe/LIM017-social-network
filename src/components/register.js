@@ -1,3 +1,5 @@
+import { registerWithEmail, sendEmailVerificationFirebase } from '../lib/authFunctions.js';
+
 const registerDisplay = () => {
   const registerPage = `
   <section class=' register-page'>
@@ -37,16 +39,38 @@ const registerDisplay = () => {
 
   const divElement = document.createElement('div');
   divElement.innerHTML = registerPage;
-  return divElement;
 
-/*   divElement.querySelector('#btnRegister').addEventListener('click', (e) => {
+  // const signUpForm=
+  divElement.querySelectorAll('#btnRegister').addEventListener('click', (e) => {
     e.preventDefault();
     const userValue = document.getElementById('inputName').value;
     const registerEmailValue = document.getElementById('inputEmail').value;
     const registerPasswordValue = document.getElementById('inputPassword').value;
     console.log(userValue, registerEmailValue, registerPasswordValue);
-
-  }); */
+    registerWithEmail(registerEmailValue, registerPasswordValue)
+      .then((userCredential) => {
+      // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        return user;
+      })
+      .then((user) => {
+        console.log(user);
+        sendEmailVerificationFirebase();
+        // eslint-disable-next-line no-alert
+        alert('Ya se envio tu correo de verificación');
+        window.location.href = '#/login';
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        console.log(errorCode);
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      // ..
+      });
+    // return signUpForm;
+  });
+  return divElement;
 };
 export default registerDisplay;
 console.log(registerDisplay);

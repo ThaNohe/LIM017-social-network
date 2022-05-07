@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import {
   getAuth, createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword,
   signInWithPopup, GoogleAuthProvider, signOut,
@@ -30,11 +31,6 @@ export const signGoogle = () => (
 );
 
 // auth Log out
-/* export const signOutFirebase = () => {
-  const auth1 = getAuth();
-  return signOut(auth1);
-}; */
-
-export const signOutFirebase = () => {
-  return signOut(auth);
-};
+export const signOutFirebase = () => (
+  signOut(auth)
+);
