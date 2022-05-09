@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import {
   getAuth, createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword,
   signInWithPopup, GoogleAuthProvider, signOut,
@@ -19,15 +20,12 @@ export const sendEmailVerificationFirebase = () => (
 
 // auth del login usuario ya registrado
 
-export const loginWithEmail = (email, password) => (
-  signInWithEmailAndPassword(auth, email, password));
+export const loginWithEmail = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
 // auth con google
 export const provider = new GoogleAuthProvider();
 
-export const signGoogle = () => (
-  signInWithPopup(auth, provider)
-);
+export const signGoogle = () => signInWithPopup(auth, provider);
 
 // auth Log out
 /* export const signOutFirebase = () => {
@@ -35,6 +33,4 @@ export const signGoogle = () => (
   return signOut(auth1);
 }; */
 
-export const signOutFirebase = () => {
-  return signOut(auth);
-};
+export const signOutFirebase = () => signOut(auth);

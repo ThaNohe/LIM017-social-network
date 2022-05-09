@@ -3,7 +3,7 @@ import registerDisplay from '../components/register.js';
 
 const registerFirebase = () => {
   const divElement = document.createElement('div');
-  divElement.querySelectorAll('#btnRegister').addEventListener('click', (e) => {
+  divElement.querySelector('#btnRegister').addEventListener('click', (e) => {
     e.preventDefault();
     const userValue = document.getElementById('inputName').value;
     const registerEmailValue = document.getElementById('inputEmail').value;

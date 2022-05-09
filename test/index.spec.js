@@ -1,8 +1,13 @@
 // importamos la funcion que vamos a testear
-import { myFunction } from '../src/lib/config.js';
+import { changeView } from '../src/index.js';
+import home from '../src/components/home.js';
 
-describe('myFunction', () => {
-  it('debería ser una función', () => {
-    expect(typeof myFunction).toBe('function');
+jest.mock('../src/lib/authFunctions.js');
+
+describe('changeView', () => {
+  it('changeView recibe un path home y devuelve el componente', () => {
+    document.body.innerHTML = '<section id="container"></section>';
+    const result = changeView('#/home');
+    expect(result).toEqual(home());
   });
 });

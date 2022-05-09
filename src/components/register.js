@@ -15,7 +15,7 @@ const registerDisplay = () => {
         <i class="fa-solid fa-at"></i>
         </div>
         <input type='email' id='inputEmail' class='text-field' placeholder='Correo electrónico' required>
-        <p id='errorEmail' class='error'></p>
+        <p id='errorEmail' class='error'> Ingresa un correo válido</p>
         
         <div class='icon-password-container'>
         <i class="fa-solid fa-lock"></i>
@@ -31,7 +31,7 @@ const registerDisplay = () => {
                 <img src='./pics/google-icon.png' class='logo-google' id='googleImgLogIn'>
             </button>
         </div>
-        </divZ>
+        </div>
 </section>
 `;
 
