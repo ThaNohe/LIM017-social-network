@@ -506,11 +506,6 @@ nav {
         align-items: center;
     }
 
-    /*contenido de pag*/
-    .conten-animegang {
-        display: flex;
-    }
-
     /*contenido de acesos directos*/
 
     .profile-container {
@@ -520,14 +515,8 @@ nav {
         border-right: 1px solid;
     }
 
-    .options-profile {
-        font-size: 15px;
-        font-weight: bolder;
-    }
-
     /*contenido publicaciones*/
     .public-container {
-        width: 1165px;
         display: flex;
         justify-content: center;
         flex-direction: column;
