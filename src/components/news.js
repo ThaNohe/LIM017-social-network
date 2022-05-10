@@ -21,30 +21,7 @@ const newsDisplay = () => {
             </div>
         </nav>
     </section>
-    <div class="conten-animegang">
-        <section class="profile-container">
- 
-            <div class="options-profile">
-                <i class="fa-solid fa-user"></i>
-                Mi Perfil
-            </div>
-            <div class="options-profile">
-                <i class="fa-solid fa-user-group"></i>
-                Grupos
-            </div>
-            <div class="options-profile">
-                <i class="fa-solid fa-video"></i>
-                Video
-            </div>
-
-            <div>
-                ___________________
-            </div>
-            <div class="options-profile">
-                Tus accesos directos
-            </div>
-        </section>
-
+    
         <section class="public-container ">
             <div class="direct-access">
                 <div class="home-option">

@@ -24,7 +24,7 @@ export const changeView = (route) => {
     case '#/login':
     { return container.appendChild(components.Login()); }
     case '#/register':
-    { return (container.appendChild(components.Register())); }
+    { return container.appendChild(components.Register()); }
     case '#/news':
     { return container.appendChild(components.Newsfeed()); }
     default:

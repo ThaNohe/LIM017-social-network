@@ -7,8 +7,14 @@ const loginDisplay = () => {
         <h2 class='title-login-register'>ANIME GANG</h2>
         <img src='./pics/nekko-mascot.png' class='logo-user' id='userPic'>
         <p class='login-subtitle'> Inicia sesión</p>
+        <div class='loginpage-icon-email-container'>
+        <i class="fa-solid fa-at"></i>
+        </div>
         <input type='email' id='login-email' class='text-field' name='login-email' placeholder='Correo electrónico'
             required />
+        <div class='loginpage-icon-password-container'>
+        <i class="fa-solid fa-lock"></i>
+        </div>
         <input type='password' id='login-password' class='text-field' name='login-password' placeholder='Contraseña'
             required />
         <p id='emptyInputPass' class='error'></p>

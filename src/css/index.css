@@ -125,6 +125,16 @@
     margin-top: 110px;
     margin-right: 200px;
 }
+.loginpage-icon-email-container{
+    position: absolute;
+    margin-top: -60px;
+    margin-right: 202px;
+}
+.loginpage-icon-password-container{
+    position: absolute;
+    margin-top: 25px;
+    margin-right: 200px;
+}
 .text-field{
     border:1px solid var(--color-border) ;
     border-radius: 4px;
@@ -238,9 +248,6 @@ nav {
 }
 
 /*contenido publicaciones*/
-/* .direct-access {
-    display: none;
-} */
 
 .direct-access {
     background-color: var(--color-profile);
@@ -379,7 +386,16 @@ nav {
         margin-top: 115px;
         margin-right: 224px;
     }
-    
+    .loginpage-icon-email-container{
+        position: absolute;
+        margin-top: -60px;
+        margin-right: 230px;
+    }
+    .loginpage-icon-password-container{
+        position: absolute;
+        margin-top: 28px;
+        margin-right: 230px;
+    }
     .text-field{
         border:1px solid var(--color-border);
         border-radius: 4px;
@@ -490,11 +506,6 @@ nav {
         align-items: center;
     }
 
-    /*contenido de pag*/
-    .conten-animegang {
-        display: flex;
-    }
-
     /*contenido de acesos directos*/
 
     .profile-container {
@@ -504,14 +515,8 @@ nav {
         border-right: 1px solid;
     }
 
-    .options-profile {
-        font-size: 15px;
-        font-weight: bolder;
-    }
-
     /*contenido publicaciones*/
     .public-container {
-        width: 1165px;
         display: flex;
         justify-content: center;
         flex-direction: column;

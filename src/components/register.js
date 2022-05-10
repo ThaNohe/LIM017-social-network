@@ -1,4 +1,4 @@
-import { registerWithEmail, sendEmailVerificationFirebase } from '../lib/authFunctions.js';
+import { registerWithEmail, sendEmailVerificationFirebase, signGoogle } from '../lib/authFunctions.js';
 
 const registerDisplay = () => {
   const registerPage = `
@@ -12,28 +12,25 @@ const registerDisplay = () => {
         </div>
         <input type='text' id='inputName' class='text-field' placeholder='Nombre'>
         <p id='emptyInputName' class='error'></p>
-        
         <div class='icon-email-container'>
         <i class="fa-solid fa-at"></i>
         </div>
         <input type='email' id='inputEmail' class='text-field' placeholder='Correo electrónico' required>
         <p id='errorEmail' class='error'></p>
-        
         <div class='icon-password-container'>
         <i class="fa-solid fa-lock"></i>
         </div>
         <input type='password' id='inputPassword' class='text-field' placeholder='Contraseña' required>
         <p id='passError' class='error'></p>
-        
         <button id='btnRegister' class='button-login-orange'>Registrate ahora</button>
         <p class='link-nextpage'><a href='#/login'>¿Ya tienes una cuenta? Iniciar Sesión</a></p>
         <div class="line-google"><span> o </span></div>
         <div class='login-page__form-google'>
-            <button class='button-login-orange'>Ingresa con tu cuenta
+            <button class='button-login-orange' id= 'loginGoogle'>Ingresa con tu cuenta
                 <img src='./pics/google-icon.png' class='logo-google' id='googleImgLogIn'>
             </button>
         </div>
-        </divZ>
+        </div>
 </section>
 `;
 
@@ -41,8 +38,7 @@ const registerDisplay = () => {
   divElement.innerHTML = registerPage;
 
   // const signUpForm=
-  divElement.querySelectorAll('#btnRegister').addEventListener('click', (e) => {
-    e.preventDefault();
+  divElement.querySelectorAll('#btnRegister').addEventListener('click', () => {
     const userValue = document.getElementById('inputName').value;
     const registerEmailValue = document.getElementById('inputEmail').value;
     const registerPasswordValue = document.getElementById('inputPassword').value;
@@ -66,9 +62,14 @@ const registerDisplay = () => {
         console.log(errorCode);
         const errorMessage = error.message;
         console.log(errorMessage);
-      // ..
+        // ..
       });
-    // return signUpForm;
+  });
+  divElement.querySelector('#loginGoogle').addEventListener('click', () => {
+    signGoogle() // agregar dirección de pag luego de googlearse
+      .then(() => {
+        window.location.href = '#/news';
+      });
   });
   return divElement;
 };

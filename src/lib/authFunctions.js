@@ -25,9 +25,7 @@ export const loginWithEmail = (email, password) => signInWithEmailAndPassword(au
 // auth con google
 export const provider = new GoogleAuthProvider();
 
-export const signGoogle = () => (
-  signInWithPopup(auth, provider)
-);
+export const signGoogle = () => signInWithPopup(auth, provider);
 
 // auth Log out
 export const signOutFirebase = () => signOut(auth);
