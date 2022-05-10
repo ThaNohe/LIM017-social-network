@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/no-unresolved
+/* eslint-disable max-len */
 import {
   getAuth, createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword,
   signInWithPopup, GoogleAuthProvider, signOut,
@@ -20,8 +20,7 @@ export const sendEmailVerificationFirebase = () => (
 
 // auth del login usuario ya registrado
 
-export const loginWithEmail = (email, password) => (
-  signInWithEmailAndPassword(auth, email, password));
+export const loginWithEmail = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
 // auth con google
 export const provider = new GoogleAuthProvider();
@@ -31,6 +30,4 @@ export const signGoogle = () => (
 );
 
 // auth Log out
-export const signOutFirebase = () => (
-  signOut(auth)
-);
+export const signOutFirebase = () => signOut(auth);

@@ -238,9 +238,9 @@ nav {
 }
 
 /*contenido publicaciones*/
-.direct-access {
+/* .direct-access {
     display: none;
-}
+} */
 
 .direct-access {
     background-color: var(--color-profile);
