@@ -1,4 +1,5 @@
 import { signOutFirebase } from '../lib/authFunctions.js';
+import { saveTask } from '../lib/firestoreFunctions.js';
 
 const newsDisplay = () => {
   const newsPage = `
@@ -8,7 +9,7 @@ const newsDisplay = () => {
                 <img src="../pics/logo-news.png" alt="logo" class="logo">
             </div>
 
-            <div class="nav-containaer">
+            <div class="nav-container">
                 <div for="check" class="search">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
@@ -44,12 +45,13 @@ const newsDisplay = () => {
                     Recomendaciones
                 </div>
             </div>
-
-            <div class="post-container">
-                <input type="text" class="post-text" placeholder="¿Qué estas pensando?">
+            <form>
+            <div class="post-container" id="tasks">
+                <textarea id="description" class="post-text" placeholder="¿Qué estas pensando?"></textarea>
                 <div class="button-post">
-                    <button class="post-comment">Publicar</button>
+                    <button id="postSubmit" class="post-comment">Publicar</button>
                 </div>
+            </form>
                 </div>
         </section>
     </div>
@@ -63,7 +65,24 @@ const newsDisplay = () => {
         window.location.href = '#/home';
       });
   });
+  /* divElement.querySelector('#postInput').addEventListener('click', () => {
+   console.log('#postInput');
+  }); */
+  divElement.querySelector('#tasks').addEventListener('click', () => {
+    const inputValue = document.getElementById('description').value;
+    saveTask(inputValue);
+    console.log(inputValue.value);
+  });
   return divElement;
 };
 
 export default newsDisplay;
+
+/* window.addEventListener('DOMContentLoaded', () => {
+  console.log('start news');
+   const postContainer = document.querySelector('.post-container');
+  postContainer.addEventListener((e) => {
+    e.preventDefault()
+    console.log('enviado')
+  });
+});  */

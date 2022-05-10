@@ -37,8 +37,7 @@ const registerDisplay = () => {
   const divElement = document.createElement('div');
   divElement.innerHTML = registerPage;
 
-  // const signUpForm=
-  divElement.querySelectorAll('#btnRegister').addEventListener('click', () => {
+  divElement.querySelector('#btnRegister').addEventListener('click', () => {
     const userValue = document.getElementById('inputName').value;
     const registerEmailValue = document.getElementById('inputEmail').value;
     const registerPasswordValue = document.getElementById('inputPassword').value;
@@ -47,7 +46,6 @@ const registerDisplay = () => {
       .then((userCredential) => {
       // Signed in
         const user = userCredential.user;
-        console.log(user);
         return user;
       })
       .then((user) => {
