@@ -1,4 +1,4 @@
-import { registerWithEmail, sendEmailVerificationFirebase } from '../lib/authFunctions.js';
+import { registerWithEmail, sendEmailVerificationFirebase, signGoogle } from '../lib/authFunctions.js';
 
 const registerDisplay = () => {
   const registerPage = `
@@ -26,7 +26,7 @@ const registerDisplay = () => {
         <p class='link-nextpage'><a href='#/login'>¿Ya tienes una cuenta? Iniciar Sesión</a></p>
         <div class="line-google"><span> o </span></div>
         <div class='login-page__form-google'>
-            <button class='button-login-orange'>Ingresa con tu cuenta
+            <button class='button-login-orange' id= 'loginGoogle'>Ingresa con tu cuenta
                 <img src='./pics/google-icon.png' class='logo-google' id='googleImgLogIn'>
             </button>
         </div>
@@ -60,6 +60,12 @@ const registerDisplay = () => {
         const errorMessage = error.message;
         console.log(errorMessage);
         // ..
+      });
+  });
+  divElement.querySelector('#loginGoogle').addEventListener('click', () => {
+    signGoogle() // agregar dirección de pag luego de googlearse
+      .then(() => {
+        window.location.href = '#/news';
       });
   });
   return divElement;
