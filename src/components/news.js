@@ -1,5 +1,5 @@
 import { signOutFirebase } from '../lib/authFunctions.js';
-import { saveTask } from '../lib/firestoreFunctions.js';
+import { saveTask, onSnapshotFb } from '../lib/firestoreFunctions.js';
 
 const newsDisplay = () => {
   const newsPage = `
@@ -51,27 +51,47 @@ const newsDisplay = () => {
                 <div class="button-post">
                     <button id="postSubmit" class="post-comment">Publicar</button>
                 </div>
+            </div>
             </form>
-                </div>
         </section>
     </div>
-
+    <div id='post-Publish'>
+    <h1>aqui va el post</h1>
+    </div>
     `;
   const divElement = document.createElement('div');
   divElement.innerHTML = newsPage;
+  const tasks = divElement.querySelector('#post-Publish');
+
+  onSnapshotFb((querySnapshot) => {
+    let html = '';
+    querySnapshot.forEach((doc) => {
+      const dataPost = doc.data();
+      console.log(doc.data());
+      // doc.data transforma los datos de un objeto de firebase a un objeto de javascript
+      html += `
+            <form class="postForm">
+              <p>${dataPost.description} </p>  
+            </form>
+            `;
+    });
+    tasks.innerHTML = html;
+  });
+
+  /* divElement.querySelector('#postInput').addEventListener('click', () => {
+   console.log('#postInput');
+  }); */
+  divElement.querySelector('#postSubmit').addEventListener('click', () => {
+    const inputDes = divElement.querySelector('#description').value;
+    saveTask(inputDes);
+    tasks.innerHTML = inputDes;
+    console.log(inputDes);
+  });
   divElement.querySelector('#logOut').addEventListener('click', () => {
     signOutFirebase()
       .then(() => {
         window.location.href = '#/home';
       });
-  });
-  /* divElement.querySelector('#postInput').addEventListener('click', () => {
-   console.log('#postInput');
-  }); */
-  divElement.querySelector('#tasks').addEventListener('click', () => {
-    const inputValue = document.getElementById('description').value;
-    saveTask(inputValue);
-    console.log(inputValue.value);
   });
   return divElement;
 };
