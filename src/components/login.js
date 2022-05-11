@@ -49,7 +49,7 @@ const loginDisplay = () => {
         const errorCode = error.code;
         console.log(errorCode);
         const errorMessage = error.message;
-        alert('correo no regristrado');
+        alert('correo regristrado');
         console.log(errorMessage);
       });
   });

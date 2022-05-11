@@ -81,11 +81,14 @@ const newsDisplay = () => {
   /* divElement.querySelector('#postInput').addEventListener('click', () => {
    console.log('#postInput');
   }); */
-  divElement.querySelector('#postSubmit').addEventListener('click', () => {
+  divElement.querySelector('#postSubmit').addEventListener('click', (e) => {
+    e.preventDefault();
     const inputDes = divElement.querySelector('#description').value;
     saveTask(inputDes);
     tasks.innerHTML = inputDes;
     console.log(inputDes);
+    //reset
+    /* divElement.querySelector('#postSubmit').reset(); */
   });
   divElement.querySelector('#logOut').addEventListener('click', () => {
     signOutFirebase()
