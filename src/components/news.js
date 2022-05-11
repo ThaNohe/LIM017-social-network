@@ -89,4 +89,11 @@ const newsDisplay = () => {
   return divElement;
 };
 
+divElement.querySelector('#postInput').addEventListener('click', () => {
+    const inputValue = document.getElementById('postInput').value;
+    saveTask(inputValue);
+    console.log('#postInput');
+  });
+
+
 export default newsDisplay;
