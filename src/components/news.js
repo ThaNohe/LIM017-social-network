@@ -10,7 +10,7 @@ const newsDisplay = () => {
             </div>
 
             <div class="nav-container">
-                <div for="check" class="search">
+                <div for="check" class="search-lup">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
 
@@ -32,14 +32,6 @@ const newsDisplay = () => {
                     <i class="fa-solid fa-star"></i>
                     Destacado
                 </div>
-                <div class="loultimo-option">
-                    <i class="fa-regular fa-clock"></i>
-                    Lo ultimo
-                </div>
-                <div class="quizzes-option">
-                    <i class="fa-solid fa-bomb"></i>
-                    Quizzes
-                </div>
                 <div class="recomendaciones-option">
                     <i class="fa-solid fa-comments"></i>
                     Recomendaciones
@@ -47,16 +39,15 @@ const newsDisplay = () => {
             </div>
             <form>
             <div class="post-container" id="tasks">
-                <textarea id="description" class="post-text" placeholder="¿Qué estas pensando?"></textarea>
-                <div class="button-post">
+            <input type="text" id="description" class="post-text" placeholder="¿Qué estas pensando?">
+            <div class="button-post">
                     <button id="postSubmit" class="post-comment">Publicar</button>
                 </div>
             </div>
             </form>
         </section>
     </div>
-    <div id='post-Publish'>
-    <h1>aqui va el post</h1>
+    <div class="post-publish" id='post-Publish'>
     </div>
     `;
   const divElement = document.createElement('div');
@@ -70,9 +61,11 @@ const newsDisplay = () => {
       console.log(doc.data());
       // doc.data transforma los datos de un objeto de firebase a un objeto de javascript
       html += `
-            <form class="postForm">
-              <p>${dataPost.description} </p>  
-            </form>
+      <form class="post-container">
+      <p class='autor-post'>${dataPost.autor} </p> 
+      <p class='description-post'>${dataPost.description} </p> 
+      <p class='time-post'>${dataPost.createdAt} </p>  
+    </form>
             `;
     });
     tasks.innerHTML = html;
@@ -84,8 +77,10 @@ const newsDisplay = () => {
   divElement.querySelector('#postSubmit').addEventListener('click', (e) => {
     e.preventDefault();
     const inputDes = divElement.querySelector('#description').value;
-    saveTask(inputDes);
-    tasks.innerHTML = inputDes;
+    const todayDate = new Date();
+    saveTask(inputDes, 'Test Autor', todayDate);
+    divElement.querySelector('#description').value = '';
+    tasks.innerHTML += inputDes;
     console.log(inputDes);
     //reset
     /* divElement.querySelector('#postSubmit').reset(); */

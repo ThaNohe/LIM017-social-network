@@ -5,5 +5,5 @@ import {
 } from 'https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js';
 import { db } from './config.js';
 
-export const saveTask = (description) => addDoc(collection(db, 'tasks'), { description });
-export const onSnapshotFb = (callback) => onSnapshot(collection(db, 'posts'), (callback));
+export const saveTask = (description, autor, createdAt) => addDoc(collection(db, 'tasks'), { description, autor, createdAt });
+export const onSnapshotFb = (callback) => onSnapshot(collection(db, 'tasks'), (callback));
