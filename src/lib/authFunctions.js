@@ -28,9 +28,4 @@ export const provider = new GoogleAuthProvider();
 export const signGoogle = () => signInWithPopup(auth, provider);
 
 // auth Log out
-/* export const signOutFirebase = () => {
-  const auth1 = getAuth();
-  return signOut(auth1);
-}; */
-
 export const signOutFirebase = () => signOut(auth);

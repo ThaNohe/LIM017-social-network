@@ -1,4 +1,5 @@
 import { signOutFirebase } from '../lib/authFunctions.js';
+import { saveTask, onSnapshotFb } from '../lib/firestoreFunctions.js';
 
 const newsDisplay = () => {
   const newsPage = `
@@ -8,7 +9,7 @@ const newsDisplay = () => {
                 <img src="../pics/logo-news.png" alt="logo" class="logo">
             </div>
 
-            <div class="nav-containaer">
+            <div class="nav-container">
                 <div for="check" class="search">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
@@ -21,30 +22,7 @@ const newsDisplay = () => {
             </div>
         </nav>
     </section>
-    <div class="conten-animegang">
-        <section class="profile-container">
- 
-            <div class="options-profile">
-                <i class="fa-solid fa-user"></i>
-                Mi Perfil
-            </div>
-            <div class="options-profile">
-                <i class="fa-solid fa-user-group"></i>
-                Grupos
-            </div>
-            <div class="options-profile">
-                <i class="fa-solid fa-video"></i>
-                Video
-            </div>
-
-            <div>
-                ___________________
-            </div>
-            <div class="options-profile">
-                Tus accesos directos
-            </div>
-        </section>
-
+    
         <section class="public-container ">
             <div class="direct-access">
                 <div class="home-option">
@@ -67,19 +45,48 @@ const newsDisplay = () => {
                     Recomendaciones
                 </div>
             </div>
-
-            <div class="post-container">
-                <input type="text" class="post-text" placeholder="¿Qué estas pensando?">
+            <form>
+            <div class="post-container" id="tasks">
+                <textarea id="description" class="post-text" placeholder="¿Qué estas pensando?"></textarea>
                 <div class="button-post">
-                    <button class="post-comment">Publicar</button>
+                    <button id="postSubmit" class="post-comment">Publicar</button>
                 </div>
-                </div>
+            </div>
+            </form>
         </section>
     </div>
-
+    <div id='post-Publish'>
+    <h1>aqui va el post</h1>
+    </div>
     `;
   const divElement = document.createElement('div');
   divElement.innerHTML = newsPage;
+  const tasks = divElement.querySelector('#post-Publish');
+
+  onSnapshotFb((querySnapshot) => {
+    let html = '';
+    querySnapshot.forEach((doc) => {
+      const dataPost = doc.data();
+      console.log(doc.data());
+      // doc.data transforma los datos de un objeto de firebase a un objeto de javascript
+      html += `
+            <form class="postForm">
+              <p>${dataPost.description} </p>  
+            </form>
+            `;
+    });
+    tasks.innerHTML = html;
+  });
+
+  /* divElement.querySelector('#postInput').addEventListener('click', () => {
+   console.log('#postInput');
+  }); */
+  divElement.querySelector('#postSubmit').addEventListener('click', () => {
+    const inputDes = divElement.querySelector('#description').value;
+    saveTask(inputDes);
+    tasks.innerHTML = inputDes;
+    console.log(inputDes);
+  });
   divElement.querySelector('#logOut').addEventListener('click', () => {
     signOutFirebase()
       .then(() => {
@@ -97,3 +104,12 @@ divElement.querySelector('#postInput').addEventListener('click', () => {
 
 
 export default newsDisplay;
+
+/* window.addEventListener('DOMContentLoaded', () => {
+  console.log('start news');
+   const postContainer = document.querySelector('.post-container');
+  postContainer.addEventListener((e) => {
+    e.preventDefault()
+    console.log('enviado')
+  });
+});  */
