@@ -1,5 +1,6 @@
 import { signOutFirebase } from '../lib/authFunctions.js';
 import { saveTask, onSnapshotFb, deletePost } from '../lib/firestoreFunctions.js';
+import { loginWithEmail, signGoogle } from '../lib/authFunctions.js';
 
 const newsDisplay = () => {
   const newsPage = `
@@ -63,10 +64,11 @@ const newsDisplay = () => {
       // doc.data transforma los datos de un objeto de firebase a un objeto de javascript
       html += `
       <form class="post-container">
-      <p class='autor-post'>${dataPost.autor} </p> 
+      <p class='autor-post'>${dataPost.author} </p> 
       <p class='description-post'>${dataPost.description} </p> 
       <p class='time-post'>${dataPost.createdAt} </p>
-      <button class='btn-borrar' data-id="${doc.id}")>Borrar</button>  
+      <button class='btn-borrar' data-id="${doc.id}")>Borrar</button>
+      <button class='btn-edit' data-id="${doc.id}")>Editar</button>
     </form>
             `;
     });
@@ -76,6 +78,10 @@ const newsDisplay = () => {
     btnBorrar.forEach((btn) => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
         deletePost(dataset.id);
+     /*    if (idUsuario == idUsuarioPost) {
+          borrarPost(); */
+       }
+       
         /* console.log(event.target.dataset.id) */
         /* console.log('deleting'); */
       });
