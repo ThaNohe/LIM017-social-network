@@ -101,21 +101,4 @@ const newsDisplay = () => {
   });
   return divElement;
 };
-
-divElement.querySelector('#postInput').addEventListener('click', () => {
-    const inputValue = document.getElementById('postInput').value;
-    saveTask(inputValue);
-    console.log('#postInput');
-  });
-
-
 export default newsDisplay;
-
-/* window.addEventListener('DOMContentLoaded', () => {
-  console.log('start news');
-   const postContainer = document.querySelector('.post-container');
-  postContainer.addEventListener((e) => {
-    e.preventDefault()
-    console.log('enviado')
-  });
-});  */

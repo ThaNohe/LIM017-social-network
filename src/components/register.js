@@ -73,9 +73,3 @@ const registerDisplay = () => {
 };
 export default registerDisplay;
 console.log(registerDisplay);
-
-const taskForm = document.getElementById('postCotainer');
-taskForm.addEventListener('submit'), (e) => {
-  e.preventDefault()
-  console.log ('se envio post')
-});
