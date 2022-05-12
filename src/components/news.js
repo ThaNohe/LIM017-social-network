@@ -1,4 +1,4 @@
-import { signOutFirebase } from '../lib/authFunctions.js';
+import { signOutFirebase, auth } from '../lib/authFunctions.js';
 import { saveTask, onSnapshotFb, deletePost } from '../lib/firestoreFunctions.js';
 
 const newsDisplay = () => {
@@ -63,7 +63,7 @@ const newsDisplay = () => {
       // doc.data transforma los datos de un objeto de firebase a un objeto de javascript
       html += `
       <form class="post-container">
-      <p class='autor-post'>${dataPost.autor} </p> 
+      <p class='autor-post'>${dataPost.author} </p> 
       <p class='description-post'>${dataPost.description} </p> 
       <p class='time-post'>${dataPost.createdAt} </p>
       <button class='btn-borrar' data-id="${doc.id}")>Borrar</button>  
@@ -71,6 +71,7 @@ const newsDisplay = () => {
             `;
     });
     tasks.innerHTML = html;
+
     const btnBorrar = tasks.querySelectorAll('.btn-borrar');
     console.log(btnBorrar);
     btnBorrar.forEach((btn) => {
@@ -80,19 +81,19 @@ const newsDisplay = () => {
         /* console.log('deleting'); */
       });
     });
+
+    const author = auth.currentUser;
+
+    divElement.querySelector('#postSubmit').addEventListener('click', () => {
+      const inputDes = divElement.querySelector('#description').value;
+      const todayDate = new Date();
+      saveTask(inputDes, author, todayDate);
+      divElement.querySelector('#description').value = '';
+      tasks.innerHTML += inputDes;
+      console.log(inputDes);
+    });
   });
 
-  /* divElement.querySelector('#postInput').addEventListener('click', () => {
-   console.log('#postInput');
-  }); */
-  divElement.querySelector('#postSubmit').addEventListener('click', () => {
-    const inputDes = divElement.querySelector('#description').value;
-    const todayDate = new Date();
-    saveTask(inputDes, 'Test Autor', todayDate);
-    divElement.querySelector('#description').value = '';
-    tasks.innerHTML += inputDes;
-    console.log(inputDes);
-  });
   divElement.querySelector('#logOut').addEventListener('click', () => {
     signOutFirebase()
       .then(() => {
@@ -101,7 +102,6 @@ const newsDisplay = () => {
   });
   return divElement;
 };
-
 export default newsDisplay;
 
 /* window.addEventListener('DOMContentLoaded', () => {
