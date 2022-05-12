@@ -87,14 +87,13 @@ const newsDisplay = () => {
       });
     });
   });
-
   /* divElement.querySelector('#postInput').addEventListener('click', () => {
    console.log('#postInput');
   }); */
   divElement.querySelector('#postSubmit').addEventListener('click', () => {
     const inputDes = divElement.querySelector('#description').value;
     const todayDate = new Date();
-    saveTask(inputDes, 'Test Autor', todayDate);
+    saveTask(inputDes, dataset.id, todayDate);
     divElement.querySelector('#description').value = '';
     tasks.innerHTML += inputDes;
     console.log(inputDes);
