@@ -1,5 +1,5 @@
 import { signOutFirebase } from '../lib/authFunctions.js';
-import { saveTask, onSnapshotFb } from '../lib/firestoreFunctions.js';
+import { saveTask, onSnapshotFb, deletePost } from '../lib/firestoreFunctions.js';
 
 const newsDisplay = () => {
   const newsPage = `
@@ -58,17 +58,28 @@ const newsDisplay = () => {
     let html = '';
     querySnapshot.forEach((doc) => {
       const dataPost = doc.data();
-      console.log(doc.data());
+      console.log(doc.id);
+      /* console.log(doc.data()); */
       // doc.data transforma los datos de un objeto de firebase a un objeto de javascript
       html += `
       <form class="post-container">
       <p class='autor-post'>${dataPost.autor} </p> 
       <p class='description-post'>${dataPost.description} </p> 
-      <p class='time-post'>${dataPost.createdAt} </p>  
+      <p class='time-post'>${dataPost.createdAt} </p>
+      <button class='btn-borrar' data-id="${doc.id}")>Borrar</button>  
     </form>
             `;
     });
     tasks.innerHTML = html;
+    const btnBorrar = tasks.querySelectorAll('.btn-borrar');
+    console.log(btnBorrar);
+    btnBorrar.forEach((btn) => {
+      btn.addEventListener('click', ({ target: { dataset } }) => {
+        deletePost(dataset.id);
+        /* console.log(event.target.dataset.id) */
+        /* console.log('deleting'); */
+      });
+    });
   });
 
   /* divElement.querySelector('#postInput').addEventListener('click', () => {
