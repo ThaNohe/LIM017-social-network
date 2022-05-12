@@ -82,12 +82,13 @@ const newsDisplay = () => {
       });
     });
 
-    const author = auth.currentUser;
+    
 
     divElement.querySelector('#postSubmit').addEventListener('click', () => {
       const inputDes = divElement.querySelector('#description').value;
       const todayDate = new Date();
-      saveTask(inputDes, author, todayDate);
+      const authorId = auth.currentUser;
+      saveTask(inputDes, authorId.uid, todayDate);
       divElement.querySelector('#description').value = '';
       tasks.innerHTML += inputDes;
       console.log(inputDes);
