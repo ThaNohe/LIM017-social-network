@@ -6,7 +6,7 @@ import {
 } from 'https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js';
 import { app } from './config.js';
 
-const auth = getAuth(app);
+export const auth = getAuth(app);
 
 // Función de registro
 

@@ -1,4 +1,4 @@
-import { signOutFirebase } from '../lib/authFunctions.js';
+import { signOutFirebase, auth } from '../lib/authFunctions.js';
 import { saveTask, onSnapshotFb, deletePost } from '../lib/firestoreFunctions.js';
 import { loginWithEmail, signGoogle } from '../lib/authFunctions.js';
 
@@ -73,6 +73,7 @@ const newsDisplay = () => {
             `;
     });
     tasks.innerHTML = html;
+
     const btnBorrar = tasks.querySelectorAll('.btn-borrar');
     console.log(btnBorrar);
     btnBorrar.forEach((btn) => {
@@ -86,7 +87,20 @@ const newsDisplay = () => {
         /* console.log('deleting'); */
       });
     });
+
+    
+
+    divElement.querySelector('#postSubmit').addEventListener('click', () => {
+      const inputDes = divElement.querySelector('#description').value;
+      const todayDate = new Date();
+      const authorId = auth.currentUser;
+      saveTask(inputDes, authorId.uid, todayDate);
+      divElement.querySelector('#description').value = '';
+      tasks.innerHTML += inputDes;
+      console.log(inputDes);
+    });
   });
+<<<<<<< HEAD
   /* divElement.querySelector('#postInput').addEventListener('click', () => {
    console.log('#postInput');
   }); */
@@ -98,6 +112,9 @@ const newsDisplay = () => {
     tasks.innerHTML += inputDes;
     console.log(inputDes);
   });
+=======
+
+>>>>>>> 9c22a579559a5def70c4a606e43b56c9555b0c07
   divElement.querySelector('#logOut').addEventListener('click', () => {
     signOutFirebase()
       .then(() => {
