@@ -71,23 +71,20 @@ const newsDisplay = () => {
             `;
     });
     tasks.innerHTML = html;
+    const authorId = auth.currentUser;
 
     const btnBorrar = tasks.querySelectorAll('.btn-borrar');
     console.log(btnBorrar);
     btnBorrar.forEach((btn) => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
-        deletePost(dataset.id);
+        if (authorId.uid == dataset.id) { deletePost(dataset.id); }
         /* console.log(event.target.dataset.id) */
         /* console.log('deleting'); */
       });
     });
-
-    
-
     divElement.querySelector('#postSubmit').addEventListener('click', () => {
       const inputDes = divElement.querySelector('#description').value;
       const todayDate = new Date();
-      const authorId = auth.currentUser;
       saveTask(inputDes, authorId.uid, todayDate);
       divElement.querySelector('#description').value = '';
       tasks.innerHTML += inputDes;
