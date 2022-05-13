@@ -82,8 +82,6 @@ const newsDisplay = () => {
       });
     });
 
-    
-
     divElement.querySelector('#postSubmit').addEventListener('click', () => {
       const inputDes = divElement.querySelector('#description').value;
       const todayDate = new Date();
