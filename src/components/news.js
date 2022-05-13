@@ -8,14 +8,11 @@ const newsDisplay = () => {
             <div class="logos-container">
                 <img src="../pics/logo-news.png" alt="logo" class="logo">
             </div>
-
             <div class="nav-container">
                 <div for="check" class="search-lup">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
-
                 <input type="search" class="search-nav" id="search" placeholder="Search...">
-
                 <div for="check" class="search" id="logOut">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 </div>
@@ -66,36 +63,33 @@ const newsDisplay = () => {
       <p class='autor-post'>${dataPost.author} </p> 
       <p class='description-post'>${dataPost.description} </p> 
       <p class='time-post'>${dataPost.createdAt} </p>
-      <button class='btn-borrar' data-id="${doc.id}")>Borrar</button>
-      <button class='btn-edit' data-id="${doc.id}")>Editar</button>
+      <button class='btn-borrar' data-id="${doc.id}")>Borrar</button>  
     </form>
             `;
     });
     tasks.innerHTML = html;
+
     const btnBorrar = tasks.querySelectorAll('.btn-borrar');
     console.log(btnBorrar);
     btnBorrar.forEach((btn) => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
         deletePost(dataset.id);
-        /*    if (idUsuario == idUsuarioPost) {
-          borrarPost(); */
+        /* console.log(event.target.dataset.id) */
+        /* console.log('deleting'); */
       });
+    });
 
-      /* console.log(event.target.dataset.id) */
-      /* console.log('deleting'); */
+    divElement.querySelector('#postSubmit').addEventListener('click', () => {
+      const inputDes = divElement.querySelector('#description').value;
+      const todayDate = new Date();
+      const authorId = auth.currentUser;
+      saveTask(inputDes, authorId.uid, todayDate);
+      divElement.querySelector('#description').value = '';
+      tasks.innerHTML += inputDes;
+      console.log(inputDes);
     });
   });
-  /* divElement.querySelector('#postInput').addEventListener('click', () => {
-   console.log('#postInput');
-  }); */
-  divElement.querySelector('#postSubmit').addEventListener('click', () => {
-    const inputDes = divElement.querySelector('#description').value;
-    const todayDate = new Date();
-    saveTask(inputDes, dataset.id, todayDate);
-    divElement.querySelector('#description').value = '';
-    tasks.innerHTML += inputDes;
-    console.log(inputDes);
-  });
+
   divElement.querySelector('#logOut').addEventListener('click', () => {
     signOutFirebase()
       .then(() => {
@@ -105,3 +99,12 @@ const newsDisplay = () => {
   return divElement;
 };
 export default newsDisplay;
+
+/* window.addEventListener('DOMContentLoaded', () => {
+  console.log('start news');
+   const postContainer = document.querySelector('.post-container');
+  postContainer.addEventListener((e) => {
+    e.preventDefault()
+    console.log('enviado')
+  });
+});  */
