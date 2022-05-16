@@ -72,4 +72,3 @@ const registerDisplay = () => {
   return divElement;
 };
 export default registerDisplay;
-console.log(registerDisplay);
