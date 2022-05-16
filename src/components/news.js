@@ -1,7 +1,13 @@
 import { signOutFirebase, auth } from '../lib/authFunctions.js';
-import { saveTask, onSnapshotFb, deletePost } from '../lib/firestoreFunctions.js';
+import {
+  saveTask,
+  onSnapshotFb,
+  deletePost,
+  /* editPost, */
+} from '../lib/firestoreFunctions.js';
 
 const newsDisplay = () => {
+  const divElement = document.createElement('div');
   const newsPage = `
   <section class="header">
         <nav class="header-nav">
@@ -35,8 +41,8 @@ const newsDisplay = () => {
                 </div>
             </div>
             <form>
-            <div class="post-container" id="tasks">
-            <input type="text" id="description" class="post-text" placeholder="¿Qué estas pensando?">
+            <div class="post-container" id="posts">
+            <input type="text" id="description" class="post-text" placeholder="¿Qué estas pensando?" required>
             <div class="button-post">
                     <button id="postSubmit" class="post-comment">Publicar</button>
                 </div>
@@ -47,18 +53,16 @@ const newsDisplay = () => {
     <div class="post-publish" id='post-Publish'>
     </div>
     `;
-  const divElement = document.createElement('div');
   divElement.innerHTML = newsPage;
-  const tasks = divElement.querySelector('#post-Publish');
-
+  const posts = divElement.querySelector('#post-Publish');
   onSnapshotFb((querySnapshot) => {
     let html = '';
     querySnapshot.forEach((doc) => {
       const dataPost = doc.data();
-      console.log(doc.id);
       /* console.log(doc.data()); */
       // doc.data transforma los datos de un objeto de firebase a un objeto de javascript
       html += `
+<<<<<<< HEAD
       <form class="post-container">
       <p class='user-email'>${dataPost.email} </p> 
       <p class='description-post'>${dataPost.description} </p> 
@@ -74,13 +78,28 @@ const newsDisplay = () => {
     const btnBorrar = tasks.querySelectorAll('.btn-borrar');
     console.log(btnBorrar);
     btnBorrar.forEach((btn) => {
+=======
+    <form class='post-container'>
+      <p class='email-post'>${dataPost.email} </p> 
+      <p class='description-post' >${dataPost.description} 
+      <p class='time-post'>${dataPost.createdAt} </p>
+      <button data-id="${doc.id}" class='btn-delete'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Borrar</button>
+      <button data-id="${doc.id}" class='btn-edit'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Editar</button>
+      </form>
+            `;
+    });
+    posts.innerHTML = html;
+    const btnDelete = divElement.querySelectorAll('.btn-delete');
+    btnDelete.forEach((btn) => {
+>>>>>>> bf4d78ecdd091ddb26df67d9549d023420514c5e
       btn.addEventListener('click', ({ target: { dataset } }) => {
         // if (authorId.uid === dataset.id) { deletePost(dataset.id); }
         deletePost(dataset.id);
-        /* console.log(event.target.dataset.id) */
-        /* console.log('deleting'); */
+        /* console.log('me dieron click');
+        console.log(JSON.parse(localStorage.getItem('userEmail'))); */
       });
     });
+<<<<<<< HEAD
     divElement.querySelector('#postSubmit').addEventListener('click', () => {
       const inputDes = divElement.querySelector('#description').value;
       const todayDate = new Date();
@@ -90,6 +109,26 @@ const newsDisplay = () => {
       tasks.innerHTML += inputDes;
       console.log(inputDes);
     });
+=======
+    /* const btnEdit = divElement.querySelectorAll('.btn-edit');
+    btnEdit.forEach((btn) => {
+      btn.addEventListener('click', ({ target: { dataset } }) => {
+        deletePost(dataset.id);
+      }); */
+  });
+
+  /*     <button data-id="${doc.id}" class='btn-borrar'>Borrar</button> */
+  /*     ${dataPost.email === localStorage.getItem('userEmail') ? '' : 'disabled'} */
+
+  divElement.querySelector('#postSubmit').addEventListener('click', () => {
+    const authorId = auth.currentUser;
+    const inputDes = divElement.querySelector('#description').value;
+    const todayDate = new Date();
+    saveTask(inputDes, authorId.email, todayDate);
+    /* window.location.href = '#/news'; */
+    divElement.querySelector('#description').value = '';
+    /* posts.innerHTML += inputDes; */
+>>>>>>> bf4d78ecdd091ddb26df67d9549d023420514c5e
   });
 
   divElement.querySelector('#logOut').addEventListener('click', () => {
@@ -100,13 +139,5 @@ const newsDisplay = () => {
   });
   return divElement;
 };
-export default newsDisplay;
 
-/* window.addEventListener('DOMContentLoaded', () => {
-  console.log('start news');
-   const postContainer = document.querySelector('.post-container');
-  postContainer.addEventListener((e) => {
-    e.preventDefault()
-    console.log('enviado')
-  });
-});  */
+export default newsDisplay;
