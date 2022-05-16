@@ -1,5 +1,10 @@
 import { signOutFirebase, auth } from '../lib/authFunctions.js';
-import { saveTask, onSnapshotFb, deletePost } from '../lib/firestoreFunctions.js';
+import {
+  saveTask,
+  onSnapshotFb,
+  deletePost,
+  /* editPost, */
+} from '../lib/firestoreFunctions.js';
 
 const newsDisplay = () => {
   const divElement = document.createElement('div');
@@ -39,8 +44,8 @@ const newsDisplay = () => {
                 </div>
             </div>
             <form>
-            <div class="post-container" id="tasks">
-            <input type="text" id="description" class="post-text" placeholder="¿Qué estas pensando?">
+            <div class="post-container" id="posts">
+            <input type="text" id="description" class="post-text" placeholder="¿Qué estas pensando?" required>
             <div class="button-post">
                     <button id="postSubmit" class="post-comment">Publicar</button>
                 </div>
@@ -51,9 +56,8 @@ const newsDisplay = () => {
     <div class="post-publish" id='post-Publish'>
     </div>
     `;
-
   divElement.innerHTML = newsPage;
-  const tasks = divElement.querySelector('#post-Publish');
+  const posts = divElement.querySelector('#post-Publish');
   onSnapshotFb((querySnapshot) => {
     let html = '';
     querySnapshot.forEach((doc) => {
@@ -61,24 +65,29 @@ const newsDisplay = () => {
       /* console.log(doc.data()); */
       // doc.data transforma los datos de un objeto de firebase a un objeto de javascript
       html += `
-    <form class="post-container">
+    <form class='post-container'>
       <p class='email-post'>${dataPost.email} </p> 
-      <p class='description-post'>${dataPost.description} </p> 
+      <p class='description-post' >${dataPost.description} 
       <p class='time-post'>${dataPost.createdAt} </p>
-      <button data-id="${doc.id}" class='btn-borrar'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Borrar</button>
-    </form>
-    
+      <button data-id="${doc.id}" class='btn-delete'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Borrar</button>
+      <button data-id="${doc.id}" class='btn-edit'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Editar</button>
+      </form>
             `;
     });
-    tasks.innerHTML = html;
-    const btnBorrar = divElement.querySelectorAll('.btn-borrar');
-    btnBorrar.forEach((btn) => {
+    posts.innerHTML = html;
+    const btnDelete = divElement.querySelectorAll('.btn-delete');
+    btnDelete.forEach((btn) => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
         deletePost(dataset.id);
-        console.log('me dieron click');
-        console.log(JSON.parse(localStorage.getItem('userEmail')));
+        /* console.log('me dieron click');
+        console.log(JSON.parse(localStorage.getItem('userEmail'))); */
       });
     });
+    /* const btnEdit = divElement.querySelectorAll('.btn-edit');
+    btnEdit.forEach((btn) => {
+      btn.addEventListener('click', ({ target: { dataset } }) => {
+        deletePost(dataset.id);
+      }); */
   });
 
   /*     <button data-id="${doc.id}" class='btn-borrar'>Borrar</button> */
@@ -91,7 +100,7 @@ const newsDisplay = () => {
     saveTask(inputDes, authorId.email, todayDate);
     /* window.location.href = '#/news'; */
     divElement.querySelector('#description').value = '';
-    /* tasks.innerHTML += inputDes; */
+    /* posts.innerHTML += inputDes; */
   });
 
   divElement.querySelector('#logOut').addEventListener('click', () => {
@@ -102,13 +111,5 @@ const newsDisplay = () => {
   });
   return divElement;
 };
-export default newsDisplay;
 
-/* window.addEventListener('DOMContentLoaded', () => {
-  console.log('start news');
-   const postContainer = document.querySelector('.post-container');
-  postContainer.addEventListener((e) => {
-    e.preventDefault()
-    console.log('enviado')
-  });
-});  */
+export default newsDisplay;
