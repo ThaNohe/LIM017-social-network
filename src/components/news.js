@@ -62,23 +62,6 @@ const newsDisplay = () => {
       /* console.log(doc.data()); */
       // doc.data transforma los datos de un objeto de firebase a un objeto de javascript
       html += `
-<<<<<<< HEAD
-      <form class="post-container">
-      <p class='user-email'>${dataPost.email} </p> 
-      <p class='description-post'>${dataPost.description} </p> 
-      <p class='time-post'>${dataPost.createdAt} </p>
-      <button class='btn-borrar' data id="${doc.id}">Borrar</button>
-      </form>
-            `;
-    });
-    tasks.innerHTML = html;
-    const authorId = auth.currentUser;
-    console.log(authorId);
-
-    const btnBorrar = tasks.querySelectorAll('.btn-borrar');
-    console.log(btnBorrar);
-    btnBorrar.forEach((btn) => {
-=======
     <form class='post-container'>
       <p class='email-post'>${dataPost.email} </p> 
       <p class='description-post' >${dataPost.description} 
@@ -91,7 +74,6 @@ const newsDisplay = () => {
     posts.innerHTML = html;
     const btnDelete = divElement.querySelectorAll('.btn-delete');
     btnDelete.forEach((btn) => {
->>>>>>> bf4d78ecdd091ddb26df67d9549d023420514c5e
       btn.addEventListener('click', ({ target: { dataset } }) => {
         // if (authorId.uid === dataset.id) { deletePost(dataset.id); }
         deletePost(dataset.id);
@@ -99,17 +81,6 @@ const newsDisplay = () => {
         console.log(JSON.parse(localStorage.getItem('userEmail'))); */
       });
     });
-<<<<<<< HEAD
-    divElement.querySelector('#postSubmit').addEventListener('click', () => {
-      const inputDes = divElement.querySelector('#description').value;
-      const todayDate = new Date();
-      saveTask(inputDes, authorId.email, todayDate);
-      // saveTask(inputDes, 'tasks', todayDate);
-      divElement.querySelector('#description').value = '';
-      tasks.innerHTML += inputDes;
-      console.log(inputDes);
-    });
-=======
     /* const btnEdit = divElement.querySelectorAll('.btn-edit');
     btnEdit.forEach((btn) => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
@@ -128,7 +99,6 @@ const newsDisplay = () => {
     /* window.location.href = '#/news'; */
     divElement.querySelector('#description').value = '';
     /* posts.innerHTML += inputDes; */
->>>>>>> bf4d78ecdd091ddb26df67d9549d023420514c5e
   });
 
   divElement.querySelector('#logOut').addEventListener('click', () => {
