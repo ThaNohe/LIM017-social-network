@@ -15,14 +15,11 @@ const newsDisplay = () => {
             <div class="logos-container">
                 <img src="../pics/logo-news.png" alt="logo" class="logo">
             </div>
-
             <div class="nav-container">
                 <div for="check" class="search-lup">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
-
                 <input type="search" class="search-nav" id="search" placeholder="Search...">
-
                 <div for="check" class="search" id="logOut">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 </div>
@@ -46,7 +43,7 @@ const newsDisplay = () => {
             </div>
             <form>
             <div class="post-container" id="posts">
-            <input type="text" id="description" class="post-text" placeholder="¿Qué estas pensando?" required>
+            <input type="text" id="description" class="post-text" placeholder="¿Qué estas pensando?" required="required">
             <div class="button-post">
                     <button id="postSubmit" class="post-comment">Publicar</button>
                 </div>
@@ -59,6 +56,7 @@ const newsDisplay = () => {
     `;
   divElement.innerHTML = newsPage;
   const posts = divElement.querySelector('#post-Publish');
+
   onSnapshotFb((querySnapshot) => {
     let html = '';
     querySnapshot.forEach((doc) => {
@@ -86,15 +84,12 @@ const newsDisplay = () => {
     });
     const btnEdit = divElement.querySelectorAll('.btn-edit');
     btnEdit.forEach((btn) => {
-      btn.addEventListener('click', async (e) => {
-        const doc = await getPost(e.target.dataset.id);
-        console.log(doc.data());
-        /* posts.description.value = post.description; */
-      });
+      btn.addEventListener('click', ({ target: { dataset } }) => {
+        deletePost(dataset.id);
+      }); 
     /* btn.addEventListener('click', ({ target: { dataset } }) => {
       editPost( dataset.id, { author: 'abc' });
     }); */
-    });
   });
   divElement.querySelector('#postSubmit').addEventListener('click', () => {
     const authorId = auth.currentUser;
@@ -115,3 +110,4 @@ const newsDisplay = () => {
   return divElement;
 };
 export default newsDisplay;
+
