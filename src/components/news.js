@@ -3,6 +3,7 @@ import {
   saveTask,
   onSnapshotFb,
   deletePost,
+  // getPost,
   /* editPost, */
 } from '../lib/firestoreFunctions.js';
 
@@ -14,11 +15,14 @@ const newsDisplay = () => {
             <div class="logos-container">
                 <img src="../pics/logo-news.png" alt="logo" class="logo">
             </div>
+
             <div class="nav-container">
                 <div for="check" class="search-lup">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
+
                 <input type="search" class="search-nav" id="search" placeholder="Search...">
+
                 <div for="check" class="search" id="logOut">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 </div>
@@ -42,7 +46,7 @@ const newsDisplay = () => {
             </div>
             <form>
             <div class="post-container" id="posts">
-            <input type="text" id="description" class="post-text" placeholder="¿Qué estas pensando?" required>
+            <input type="text" id="description" class="post-text" placeholder="¿Qué estas pensando?" required="required">
             <div class="button-post">
                     <button id="postSubmit" class="post-comment">Publicar</button>
                 </div>
@@ -55,6 +59,7 @@ const newsDisplay = () => {
     `;
   divElement.innerHTML = newsPage;
   const posts = divElement.querySelector('#post-Publish');
+
   onSnapshotFb((querySnapshot) => {
     let html = '';
     querySnapshot.forEach((doc) => {
@@ -75,7 +80,6 @@ const newsDisplay = () => {
     const btnDelete = divElement.querySelectorAll('.btn-delete');
     btnDelete.forEach((btn) => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
-        // if (authorId.uid === dataset.id) { deletePost(dataset.id); }
         deletePost(dataset.id);
         /* console.log('me dieron click');
         console.log(JSON.parse(localStorage.getItem('userEmail'))); */
@@ -86,11 +90,10 @@ const newsDisplay = () => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
         deletePost(dataset.id);
       }); */
+    /* btn.addEventListener('click', ({ target: { dataset } }) => {
+      editPost( dataset.id, { author: 'abc' });
+    }); */
   });
-
-  /*     <button data-id="${doc.id}" class='btn-borrar'>Borrar</button> */
-  /*     ${dataPost.email === localStorage.getItem('userEmail') ? '' : 'disabled'} */
-
   divElement.querySelector('#postSubmit').addEventListener('click', () => {
     const authorId = auth.currentUser;
     const inputDes = divElement.querySelector('#description').value;
@@ -109,5 +112,4 @@ const newsDisplay = () => {
   });
   return divElement;
 };
-
 export default newsDisplay;
