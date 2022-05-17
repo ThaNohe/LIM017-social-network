@@ -15,14 +15,11 @@ const newsDisplay = () => {
             <div class="logos-container">
                 <img src="../pics/logo-news.png" alt="logo" class="logo">
             </div>
-
             <div class="nav-container">
                 <div for="check" class="search-lup">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
-
                 <input type="search" class="search-nav" id="search" placeholder="Search...">
-
                 <div for="check" class="search" id="logOut">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 </div>
