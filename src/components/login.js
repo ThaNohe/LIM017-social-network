@@ -41,8 +41,12 @@ const loginDisplay = () => {
       .then((userCredential) => {
       // Signed in
         const user = userCredential.user;
-        window.location.href = '#/news';
-        console.log(user);
+        localStorage.setItem('userEmail', JSON.stringify({ emailUser: user.email, idUser: user.uid }));
+        if (user.emailVerified) {
+          window.location.href = '#/news';
+        } else {
+          alert('Por favor verifica el enlace enviado a tu correo');
+        }
       // ...
       })
       .catch((error) => {
@@ -56,7 +60,9 @@ const loginDisplay = () => {
 
   divElement.querySelector('#loginGoogle').addEventListener('click', () => {
     signGoogle() // agregar dirección de pag luego de googlearse
-      .then(() => {
+      .then((result) => {
+        const user = result.user;
+        localStorage.setItem('userEmail', JSON.stringify({ emailUser: user.email, idUser: user.uid }));
         window.location.href = '#/news';
       });
   });
