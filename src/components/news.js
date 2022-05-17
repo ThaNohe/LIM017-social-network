@@ -3,6 +3,7 @@ import {
   saveTask,
   onSnapshotFb,
   deletePost,
+  getPost,
   /* editPost, */
 } from '../lib/firestoreFunctions.js';
 
@@ -65,7 +66,7 @@ const newsDisplay = () => {
       /* console.log(doc.data()); */
       // doc.data transforma los datos de un objeto de firebase a un objeto de javascript
       html += `
-    <form class='post-container'>
+    <form class='post-container'id="posts">
       <p class='email-post'>${dataPost.email} </p> 
       <p class='description-post' >${dataPost.description} 
       <p class='time-post'>${dataPost.createdAt} </p>
@@ -83,16 +84,18 @@ const newsDisplay = () => {
         console.log(JSON.parse(localStorage.getItem('userEmail'))); */
       });
     });
-    /* const btnEdit = divElement.querySelectorAll('.btn-edit');
+    const btnEdit = divElement.querySelectorAll('.btn-edit');
     btnEdit.forEach((btn) => {
-      btn.addEventListener('click', ({ target: { dataset } }) => {
-        deletePost(dataset.id);
-      }); */
+      btn.addEventListener('click', async (e) => {
+        const doc = await getPost(e.target.dataset.id);
+        console.log(doc.data());
+        /* posts.description.value = post.description; */
+      });
+    /* btn.addEventListener('click', ({ target: { dataset } }) => {
+      editPost( dataset.id, { author: 'abc' });
+    }); */
+    });
   });
-
-  /*     <button data-id="${doc.id}" class='btn-borrar'>Borrar</button> */
-  /*     ${dataPost.email === localStorage.getItem('userEmail') ? '' : 'disabled'} */
-
   divElement.querySelector('#postSubmit').addEventListener('click', () => {
     const authorId = auth.currentUser;
     const inputDes = divElement.querySelector('#description').value;
@@ -111,5 +114,4 @@ const newsDisplay = () => {
   });
   return divElement;
 };
-
 export default newsDisplay;
