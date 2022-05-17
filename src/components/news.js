@@ -3,7 +3,7 @@ import {
   saveTask,
   onSnapshotFb,
   deletePost,
-  getPost,
+  // getPost,
   /* editPost, */
 } from '../lib/firestoreFunctions.js';
 
@@ -64,7 +64,7 @@ const newsDisplay = () => {
       /* console.log(doc.data()); */
       // doc.data transforma los datos de un objeto de firebase a un objeto de javascript
       html += `
-    <form class='post-container'id="posts">
+    <form class='post-container'>
       <p class='email-post'>${dataPost.email} </p> 
       <p class='description-post' >${dataPost.description} 
       <p class='time-post'>${dataPost.createdAt} </p>
@@ -82,11 +82,11 @@ const newsDisplay = () => {
         console.log(JSON.parse(localStorage.getItem('userEmail'))); */
       });
     });
-    const btnEdit = divElement.querySelectorAll('.btn-edit');
+    /* const btnEdit = divElement.querySelectorAll('.btn-edit');
     btnEdit.forEach((btn) => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
         deletePost(dataset.id);
-      }); 
+      }); */
     /* btn.addEventListener('click', ({ target: { dataset } }) => {
       editPost( dataset.id, { author: 'abc' });
     }); */
@@ -110,4 +110,3 @@ const newsDisplay = () => {
   return divElement;
 };
 export default newsDisplay;
-
