@@ -3,7 +3,7 @@ import {
   saveTask,
   onSnapshotFb,
   deletePost,
-  // getPost,
+  getPost,
   /* editPost, */
 } from '../lib/firestoreFunctions.js';
 
@@ -68,8 +68,8 @@ const newsDisplay = () => {
       <p class='email-post'>${dataPost.email} </p> 
       <p class='description-post' >${dataPost.description} 
       <p class='time-post'>${dataPost.createdAt} </p>
-      <button data-id="${doc.id}" class='btn-delete'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Borrar</button>
-      <button data-id="${doc.id}" class='btn-edit'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Editar</button>
+      <button data-id="${doc.id}" class='btn-delete'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>🗑</button>
+      <button data-id="${doc.id}" class='btn-edit'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>🖉</button>
       </form>
             `;
     });
@@ -82,14 +82,14 @@ const newsDisplay = () => {
         console.log(JSON.parse(localStorage.getItem('userEmail'))); */
       });
     });
-    /* const btnEdit = divElement.querySelectorAll('.btn-edit');
-    btnEdit.forEach((btn) => {
-      btn.addEventListener('click', ({ target: { dataset } }) => {
-        deletePost(dataset.id);
-      }); */
-    /* btn.addEventListener('click', ({ target: { dataset } }) => {
-      editPost( dataset.id, { author: 'abc' });
-    }); */
+    const btnsEdit = divElement.querySelectorAll('.btn-edit');
+    btnsEdit.forEach((btn) => {
+      btn.addEventListener('click', async (e) => {
+        const doc = await getPost(e.target.dataset.id);
+        const dataPost = doc.data();
+        document.querySelector('.post-text').value = dataPost.description;
+      });
+    });
   });
   divElement.querySelector('#postSubmit').addEventListener('click', () => {
     const authorId = auth.currentUser;
@@ -110,3 +110,17 @@ const newsDisplay = () => {
   return divElement;
 };
 export default newsDisplay;
+
+/* tasksContainer.innerHTML += `
+      <div class="card card-body mt-2 border-primary">
+    <h3 class="h5">${task.title}</h3>
+    <p>${task.description}</p>
+    <div>
+      <button class="btn btn-primary btn-delete" data-id="${doc.id}">
+        🗑 Delete
+      </button>
+      <button class="btn btn-secondary btn-edit" data-id="${doc.id}">
+        🖉 Edit
+      </button>
+    </div>
+  </div>`; */
