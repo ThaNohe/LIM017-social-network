@@ -4,7 +4,7 @@ import {
   onSnapshotFb,
   deletePost,
   getPost,
-  /* editPost, */
+  editPost,
 } from '../lib/firestoreFunctions.js';
 
 const newsDisplay = () => {
@@ -66,10 +66,12 @@ const newsDisplay = () => {
       html += `
     <form class='post-container'>
       <p class='email-post'>${dataPost.email} </p> 
-      <p class='description-post' >${dataPost.description} 
+      <textarea readonly class='description-post' id='textarea-post${doc.id}' >${dataPost.description} </textarea>
       <p class='time-post'>${dataPost.createdAt} </p>
       <button data-id="${doc.id}" class='btn-delete'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Borrar</button>
       <button data-id="${doc.id}" class='btn-edit'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Editar</button>
+      <button class ='hidden' id='btn-Ok${doc.id}'>Ok</button>
+    
       </form>
             `;
     });
@@ -86,16 +88,25 @@ const newsDisplay = () => {
     btnsEdit.forEach((btn) => {
       btn.addEventListener('click', async (e) => {
         const doc = await getPost(e.target.dataset.id);
-        const dataPost = doc.data();
-        document.querySelector('.post-text').value = dataPost.description;
+        /* const dataPost = doc.data(); */
+        const txtarea = document.querySelector(`#textarea-post${doc.id}`);
+        txtarea.removeAttribute('readonly');
+        /* document.querySelector('.post-text').value = dataPost.description; */
+        const btnOk = document.querySelector(`#btn-Ok${doc.id}`);
+        btnOk.classList.remove('hidden');
+        btnOk.addEventListener('click', () => {
+          txtarea.setAttribute('readonly', '');
+          editPost(doc.id, txtarea.value);
+        });
       });
     });
   });
+
   divElement.querySelector('#postSubmit').addEventListener('click', () => {
     const authorId = auth.currentUser;
-    const inputDes = divElement.querySelector('#description').value;
+    const inputDescription = divElement.querySelector('#description').value;
     const todayDate = new Date();
-    saveTask(inputDes, authorId.email, todayDate);
+    saveTask(inputDescription, authorId.email, todayDate);
     /* window.location.href = '#/news'; */
     divElement.querySelector('#description').value = '';
     /* posts.innerHTML += inputDes; */
