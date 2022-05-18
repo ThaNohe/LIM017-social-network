@@ -1,5 +1,11 @@
-import { saveTask, onSnapshotFb, deletePost } from '../lib/firestoreFunctions.js';
 import { signOutFirebase, auth } from '../lib/authFunctions.js';
+import {
+  saveTask,
+  onSnapshotFb,
+  deletePost,
+  getPost,
+  /* editPost, */
+} from '../lib/firestoreFunctions.js';
 
 const newsDisplay = () => {
   const newsPage = `
@@ -78,16 +84,23 @@ const newsDisplay = () => {
         /* console.log('deleting'); */
       });
     });
-
-    divElement.querySelector('#postSubmit').addEventListener('click', () => {
-      const inputDes = divElement.querySelector('#description').value;
-      const todayDate = new Date();
-      const authorId = auth.currentUser;
-      saveTask(inputDes, authorId.uid, todayDate);
-      divElement.querySelector('#description').value = '';
-      tasks.innerHTML += inputDes;
-      console.log(inputDes);
+    const btnsEdit = divElement.querySelectorAll('.btn-edit');
+    btnsEdit.forEach((btn) => {
+      btn.addEventListener('click', async (e) => {
+        const doc = await getPost(e.target.dataset.id);
+        const dataPost = doc.data();
+        document.querySelector('.post-text').value = dataPost.description;
+      });
     });
+  });
+  divElement.querySelector('#postSubmit').addEventListener('click', () => {
+    const authorId = auth.currentUser;
+    const inputDes = divElement.querySelector('#description').value;
+    const todayDate = new Date();
+    saveTask(inputDes, authorId.email, todayDate);
+    /* window.location.href = '#/news'; */
+    divElement.querySelector('#description').value = '';
+    /* posts.innerHTML += inputDes; */
   });
 
   divElement.querySelector('#logOut').addEventListener('click', () => {
@@ -99,3 +112,17 @@ const newsDisplay = () => {
   return divElement;
 };
 export default newsDisplay;
+
+/* tasksContainer.innerHTML += `
+      <div class="card card-body mt-2 border-primary">
+    <h3 class="h5">${task.title}</h3>
+    <p>${task.description}</p>
+    <div>
+      <button class="btn btn-primary btn-delete" data-id="${doc.id}">
+        🗑 Delete
+      </button>
+      <button class="btn btn-secondary btn-edit" data-id="${doc.id}">
+        🖉 Edit
+      </button>
+    </div>
+  </div>`; */
