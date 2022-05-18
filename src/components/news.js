@@ -68,8 +68,8 @@ const newsDisplay = () => {
       <p class='email-post'>${dataPost.email} </p> 
       <p class='description-post' >${dataPost.description} 
       <p class='time-post'>${dataPost.createdAt} </p>
-      <button data-id="${doc.id}" class='btn-delete'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>🗑</button>
-      <button data-id="${doc.id}" class='btn-edit'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>🖉</button>
+      <button data-id="${doc.id}" class='btn-delete'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Borrar</button>
+      <button data-id="${doc.id}" class='btn-edit'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Editar</button>
       </form>
             `;
     });
