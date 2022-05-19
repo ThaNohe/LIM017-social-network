@@ -66,13 +66,14 @@ const newsDisplay = () => {
       html += `
     <form class='post-container'>
       <p class='email-post'>${dataPost.email} </p> 
-      <textarea readonly class='description-post' id='textarea-post${doc.id}' >${dataPost.description} </textarea>
+      <textarea readonly class='description-post' id='textarea-post${doc.id}'> ${dataPost.description} </textarea>
       <p class='time-post'>${dataPost.createdAt} </p>
+
       <button data-id="${doc.id}" class='btn-delete'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Borrar</button>
       <button data-id="${doc.id}" class='btn-edit'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Editar</button>
       <button class ='hidden' id='btn-Ok${doc.id}'>Ok</button>
     
-      </form>
+    </form>
             `;
     });
     posts.innerHTML = html;
@@ -121,17 +122,3 @@ const newsDisplay = () => {
   return divElement;
 };
 export default newsDisplay;
-
-/* tasksContainer.innerHTML += `
-      <div class="card card-body mt-2 border-primary">
-    <h3 class="h5">${task.title}</h3>
-    <p>${task.description}</p>
-    <div>
-      <button class="btn btn-primary btn-delete" data-id="${doc.id}">
-        🗑 Delete
-      </button>
-      <button class="btn btn-secondary btn-edit" data-id="${doc.id}">
-        🖉 Edit
-      </button>
-    </div>
-  </div>`; */
