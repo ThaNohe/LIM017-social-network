@@ -63,6 +63,9 @@ const registerDisplay = () => {
         // ..
       });
   });
+
+  // Funcion para que el usuario pueda cerrar sesión
+
   divElement.querySelector('#loginGoogle').addEventListener('click', () => {
     signGoogle() // agregar dirección de pag luego de googlearse
       .then(() => {

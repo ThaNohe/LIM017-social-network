@@ -1,7 +1,14 @@
-import { saveTask, onSnapshotFb, deletePost } from '../lib/firestoreFunctions.js';
 import { signOutFirebase, auth } from '../lib/authFunctions.js';
+import {
+  saveTask,
+  onSnapshotFb,
+  deletePost,
+  // getPost,
+  /* editPost, */
+} from '../lib/firestoreFunctions.js';
 
 const newsDisplay = () => {
+  const divElement = document.createElement('div');
   const newsPage = `
   <section class="header">
         <nav class="header-nav">
@@ -35,8 +42,8 @@ const newsDisplay = () => {
                 </div>
             </div>
             <form>
-            <div class="post-container" id="tasks">
-            <input type="text" id="description" class="post-text" placeholder="¿Qué estas pensando?">
+            <div class="post-container" id="posts">
+            <input type="text" id="description" class="post-text" placeholder="¿Qué estas pensando?" required="required">
             <div class="button-post">
                     <button id="postSubmit" class="post-comment">Publicar</button>
                 </div>
@@ -47,47 +54,51 @@ const newsDisplay = () => {
     <div class="post-publish" id='post-Publish'>
     </div>
     `;
-  const divElement = document.createElement('div');
   divElement.innerHTML = newsPage;
-  const tasks = divElement.querySelector('#post-Publish');
+  const posts = divElement.querySelector('#post-Publish');
 
   onSnapshotFb((querySnapshot) => {
     let html = '';
     querySnapshot.forEach((doc) => {
       const dataPost = doc.data();
-      console.log(doc.id);
       /* console.log(doc.data()); */
       // doc.data transforma los datos de un objeto de firebase a un objeto de javascript
       html += `
-        <form class="post-container">
-        <p class='autor-post'>${dataPost.author} </p> 
-        <p class='description-post'>${dataPost.description} </p> 
-        <p class='time-post'>${dataPost.createdAt} </p>
-        <button class='btn-borrar' data-id="${doc.id}")>Borrar</button>  
+    <form class='post-container'>
+      <p class='email-post'>${dataPost.email} </p> 
+      <p class='description-post' >${dataPost.description} 
+      <p class='time-post'>${dataPost.createdAt} </p>
+      <button data-id="${doc.id}" class='btn-delete'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Borrar</button>
+      <button data-id="${doc.id}" class='btn-edit'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Editar</button>
       </form>
-              `;
+            `;
     });
-    tasks.innerHTML = html;
-
-    const btnBorrar = tasks.querySelectorAll('.btn-borrar');
-    console.log(btnBorrar);
-    btnBorrar.forEach((btn) => {
+    posts.innerHTML = html;
+    const btnDelete = divElement.querySelectorAll('.btn-delete');
+    btnDelete.forEach((btn) => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
         deletePost(dataset.id);
-        /* console.log(event.target.dataset.id) */
-        /* console.log('deleting'); */
+        /* console.log('me dieron click');
+        console.log(JSON.parse(localStorage.getItem('userEmail'))); */
       });
     });
-
-    divElement.querySelector('#postSubmit').addEventListener('click', () => {
-      const inputDes = divElement.querySelector('#description').value;
-      const todayDate = new Date();
-      const authorId = auth.currentUser;
-      saveTask(inputDes, authorId.uid, todayDate);
-      divElement.querySelector('#description').value = '';
-      tasks.innerHTML += inputDes;
-      console.log(inputDes);
-    });
+    /* const btnEdit = divElement.querySelectorAll('.btn-edit');
+    btnEdit.forEach((btn) => {
+      btn.addEventListener('click', ({ target: { dataset } }) => {
+        deletePost(dataset.id);
+      }); */
+    /* btn.addEventListener('click', ({ target: { dataset } }) => {
+      editPost( dataset.id, { author: 'abc' });
+    }); */
+  });
+  divElement.querySelector('#postSubmit').addEventListener('click', () => {
+    const authorId = auth.currentUser;
+    const inputDes = divElement.querySelector('#description').value;
+    const todayDate = new Date();
+    saveTask(inputDes, authorId.email, todayDate);
+    /* window.location.href = '#/news'; */
+    divElement.querySelector('#description').value = '';
+    /* posts.innerHTML += inputDes; */
   });
 
   divElement.querySelector('#logOut').addEventListener('click', () => {
