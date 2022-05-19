@@ -3,8 +3,8 @@ import {
   saveTask,
   onSnapshotFb,
   deletePost,
-  // getPost,
-  /* editPost, */
+  getPost,
+  editPost,
 } from '../lib/firestoreFunctions.js';
 
 const newsDisplay = () => {
@@ -66,10 +66,12 @@ const newsDisplay = () => {
       html += `
     <form class='post-container'>
       <p class='email-post'>${dataPost.email} </p> 
-      <p class='description-post' >${dataPost.description} 
+      <textarea readonly class='description-post' id='textarea-post${doc.id}' >${dataPost.description} </textarea>
       <p class='time-post'>${dataPost.createdAt} </p>
       <button data-id="${doc.id}" class='btn-delete'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Borrar</button>
       <button data-id="${doc.id}" class='btn-edit'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Editar</button>
+      <button class='hidden' id='btn-Ok${doc.id}'>Ok</button>
+    
       </form>
             `;
     });
@@ -82,20 +84,29 @@ const newsDisplay = () => {
         console.log(JSON.parse(localStorage.getItem('userEmail'))); */
       });
     });
-    /* const btnEdit = divElement.querySelectorAll('.btn-edit');
-    btnEdit.forEach((btn) => {
-      btn.addEventListener('click', ({ target: { dataset } }) => {
-        deletePost(dataset.id);
-      }); */
-    /* btn.addEventListener('click', ({ target: { dataset } }) => {
-      editPost( dataset.id, { author: 'abc' });
-    }); */
+    const btnsEdit = divElement.querySelectorAll('.btn-edit');
+    btnsEdit.forEach((btn) => {
+      btn.addEventListener('click', async (e) => {
+        const doc = await getPost(e.target.dataset.id);
+        /* const dataPost = doc.data(); */
+        const txtarea = document.querySelector(`#textarea-post${doc.id}`);
+        txtarea.removeAttribute('readonly');
+        /* document.querySelector('.post-text').value = dataPost.description; */
+        const btnOk = document.querySelector(`#btn-Ok${doc.id}`);
+        btnOk.classList.remove('hidden');
+        btnOk.addEventListener('click', () => {
+          txtarea.setAttribute('readonly', '');
+          editPost(doc.id, { description: txtarea.value });
+        });
+      });
+    });
   });
+
   divElement.querySelector('#postSubmit').addEventListener('click', () => {
     const authorId = auth.currentUser;
-    const inputDes = divElement.querySelector('#description').value;
+    const inputDescription = divElement.querySelector('#description').value;
     const todayDate = new Date();
-    saveTask(inputDes, authorId.email, todayDate);
+    saveTask(inputDescription, authorId.email, todayDate);
     /* window.location.href = '#/news'; */
     divElement.querySelector('#description').value = '';
     /* posts.innerHTML += inputDes; */
@@ -110,3 +121,17 @@ const newsDisplay = () => {
   return divElement;
 };
 export default newsDisplay;
+
+/* tasksContainer.innerHTML += `
+      <div class="card card-body mt-2 border-primary">
+    <h3 class="h5">${task.title}</h3>
+    <p>${task.description}</p>
+    <div>
+      <button class="btn btn-primary btn-delete" data-id="${doc.id}">
+        🗑 Delete
+      </button>
+      <button class="btn btn-secondary btn-edit" data-id="${doc.id}">
+        🖉 Edit
+      </button>
+    </div>
+  </div>`; */

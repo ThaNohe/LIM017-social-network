@@ -15,4 +15,6 @@ export const deletePost = (id) => deleteDoc(doc(db, 'posts', id));
 
 // Función para editar post
 export const getPost = (id) => getDoc(doc(db, 'posts', id));
-export const editPost = (id, newPost) => updateDoc(doc(db, 'posts', id), newPost);
+export const editPost = (id, newPost) => {
+  debugger
+  updateDoc(doc(db, 'posts', id), newPost)};
