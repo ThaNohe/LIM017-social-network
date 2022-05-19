@@ -70,7 +70,7 @@ const newsDisplay = () => {
       <p class='time-post'>${dataPost.createdAt} </p>
       <button data-id="${doc.id}" class='btn-delete'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Borrar</button>
       <button data-id="${doc.id}" class='btn-edit'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Editar</button>
-      <button class ='hidden' id='btn-Ok${doc.id}'>Ok</button>
+      <button class='hidden' id='btn-Ok${doc.id}'>Ok</button>
     
       </form>
             `;
@@ -96,7 +96,7 @@ const newsDisplay = () => {
         btnOk.classList.remove('hidden');
         btnOk.addEventListener('click', () => {
           txtarea.setAttribute('readonly', '');
-          editPost(doc.id, txtarea.value);
+          editPost(doc.id, { description: txtarea.value });
         });
       });
     });

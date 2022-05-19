@@ -9,4 +9,6 @@ export const saveTask = (description, email, createdAt) => addDoc(collection(db,
 export const onSnapshotFb = (callback) => onSnapshot(query(collection(db, 'posts'), orderBy('createdAt', 'desc')), callback);
 export const deletePost = (id) => deleteDoc(doc(db, 'posts', id));
 export const getPost = (id) => getDoc(doc(db, 'posts', id));
-export const editPost = (id, newPost) => updateDoc(doc(db, 'posts', id), newPost);
+export const editPost = (id, newPost) => {
+  debugger
+  updateDoc(doc(db, 'posts', id), newPost)};
