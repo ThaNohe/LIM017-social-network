@@ -1,8 +1,7 @@
-/* eslint-disable max-len */
 import {
   getAuth, createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword,
-  signInWithPopup, GoogleAuthProvider, signOut, collection, addDoc, onSnapshot, deleteDoc, doc, updateDoc, getDoc, orderBy, query,
-  // eslint-disable-next-line import/no-unresolved
+  signInWithPopup, GoogleAuthProvider, signOut, collection, addDoc, onSnapshot, deleteDoc, doc,
+  updateDoc, getDoc, orderBy, query,
 } from './firestoreFunctions.js';
 import { app, db } from './config.js';
 
@@ -20,8 +19,9 @@ export const sendEmailVerificationFirebase = () => (
 
 // auth del login usuario ya registrado
 
-export const loginWithEmail = (email, password) => signInWithEmailAndPassword(auth, email, password);
-
+export const loginWithEmail = (email, password) => {
+  signInWithEmailAndPassword(auth, email, password);
+};
 // auth con google
 export const provider = new GoogleAuthProvider();
 

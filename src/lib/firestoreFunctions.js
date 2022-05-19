@@ -2,7 +2,6 @@
 export {
   collection, addDoc, onSnapshot, deleteDoc, doc, updateDoc, getDoc, orderBy, query,
 } from 'https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js';
-export { db } from './config.js';
 
 export {
   getAuth, createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword,
