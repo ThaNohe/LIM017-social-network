@@ -10,5 +10,5 @@ export const onSnapshotFb = (callback) => onSnapshot(query(collection(db, 'posts
 export const deletePost = (id) => deleteDoc(doc(db, 'posts', id));
 export const getPost = (id) => getDoc(doc(db, 'posts', id));
 export const editPost = (id, newPost) => {
-  debugger
-  updateDoc(doc(db, 'posts', id), newPost)};
+  updateDoc(doc(db, 'posts', id), newPost);
+};
