@@ -1,11 +1,10 @@
-import { signOutFirebase, auth } from '../lib/authFunctions.js';
 import {
-  saveTask,
+  signOutFirebase, auth, saveTask,
   onSnapshotFb,
   deletePost,
   getPost,
   editPost,
-} from '../lib/firestoreFunctions.js';
+} from '../lib/authFunctions.js';
 
 const newsDisplay = () => {
   const divElement = document.createElement('div');
