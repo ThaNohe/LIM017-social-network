@@ -42,9 +42,10 @@ const newsDisplay = () => {
             </div>
             <form>
             <div class="post-container" id="posts">
-            <input type="text" id="description" class="post-text" placeholder="¿Qué estas pensando?" required="required">
+            <input type="text" id="description" class="post-text" placeholder="¿Qué estas pensando?">
+            <p class= 'post-message' id='post-message-alert'>Por favor ingrese un comentario</p>
             <div class="button-post">
-                    <button id="postSubmit" class="post-comment">Publicar</button>
+                <button id="postSubmit" class="post-comment">Publicar</button>
                 </div>
             </div>
             </form>
@@ -106,10 +107,16 @@ const newsDisplay = () => {
     const authorId = auth.currentUser;
     const inputDescription = divElement.querySelector('#description').value;
     const todayDate = new Date();
-    saveTask(inputDescription, authorId.email, todayDate);
+    // saveTask(inputDescription, authorId.email, todayDate);
     /* window.location.href = '#/news'; */
-    divElement.querySelector('#description').value = ''
-    if querySelector 
+    if (inputDescription === '') {
+      document.getElementById('post-message-alert').classList.remove('post-message');
+    } else {
+      saveTask(inputDescription, authorId.email, todayDate);
+      document.getElementById('post-message-alert').classList.add('post-message');
+      divElement.querySelector('#description').value = '';
+    }
+    // divElement.querySelector('#description').value = '';
     /* posts.innerHTML += inputDes; */
   });
 

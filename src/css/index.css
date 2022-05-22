@@ -346,14 +346,18 @@ nav {
 .autor-post{
     text-align: end;
 }
-.hidden{
+.hidden {
     display: none;
+}
+.post-message{
+    visibility: hidden;
 }
 
 .btn-delete .btn-edit .hidden {
     width: 5px;
     background-color: blue;
 }
+
 /* Responsive for desktop */
 
 @media screen and (min-width: 768px) {
