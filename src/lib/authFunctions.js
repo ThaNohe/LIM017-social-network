@@ -1,8 +1,7 @@
-/* eslint-disable max-len */
 import {
   getAuth, createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword,
   signInWithPopup, GoogleAuthProvider, signOut, collection, addDoc, onSnapshot, deleteDoc, doc, updateDoc, getDoc, orderBy, query,
-  // eslint-disable-next-line import/no-unresolved
+
 } from './firestoreFunctions.js';
 import { app, db } from './config.js';
 

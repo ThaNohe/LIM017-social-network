@@ -108,7 +108,8 @@ const newsDisplay = () => {
     const todayDate = new Date();
     saveTask(inputDescription, authorId.email, todayDate);
     /* window.location.href = '#/news'; */
-    divElement.querySelector('#description').value = '';
+    divElement.querySelector('#description').value = ''
+    if querySelector 
     /* posts.innerHTML += inputDes; */
   });
 
