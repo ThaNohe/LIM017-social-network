@@ -1,4 +1,4 @@
-import { registerWithEmail, sendEmailVerificationFirebase, signGoogle } from '../lib/authFunctions.js';
+import { registerWithEmail, sendEmailVerificationFirebase, signGoogle } from '../lib/functionsController.js';
 
 const registerDisplay = () => {
   const registerPage = `

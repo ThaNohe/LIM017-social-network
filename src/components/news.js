@@ -4,7 +4,7 @@ import {
   deletePost,
   getPost,
   editPost,
-} from '../lib/authFunctions.js';
+} from '../lib/functionsController.js';
 
 const newsDisplay = () => {
   const divElement = document.createElement('div');

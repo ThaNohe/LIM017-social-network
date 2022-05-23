@@ -359,7 +359,7 @@ nav {
     font-size: 44px;
 }
 
-.btn-delete .btn-edit .hidden {
+.btn-delete .btn-edit .hidden{
     width: 5px;
     background-color: blue;
 }
