@@ -20,9 +20,7 @@ export const sendEmailVerificationFirebase = () => (
 
 // auth del login usuario ya registrado
 
-export const loginWithEmail = (email, password) => {
-  signInWithEmailAndPassword(auth, email, password);
-};
+export const loginWithEmail = (email, password) => signInWithEmailAndPassword(auth, email, password);
 // auth con google
 export const provider = new GoogleAuthProvider();
 

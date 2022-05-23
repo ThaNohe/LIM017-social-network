@@ -11,17 +11,18 @@ const registerDisplay = () => {
           <i class="fa-solid fa-user"></i>
         </div>
         <input type='text' id='inputName' class='text-field' placeholder='Nombre'>
-        <p id='emptyInputName' class='error'></p>
+        <p id='emptyInputName' class='errorInput'></p>
         <div class='icon-email-container'>
         <i class="fa-solid fa-at"></i>
         </div>
         <input type='email' id='inputEmail' class='text-field' placeholder='Correo electrónico' required>
-        <p id='errorEmail' class='error'></p>
+        <p id='errorEmail' class='errorInput'></p>
         <div class='icon-password-container'>
         <i class="fa-solid fa-lock"></i>
         </div>
         <input type='password' id='inputPassword' class='text-field' placeholder='Contraseña' required>
-        <p id='passError' class='error'></p>
+        <p id='passError' class='errorInput'></p>
+        <p class='error'></p>
         <button id='btnRegister' class='button-login-orange'>Registrate ahora</button>
         <p class='link-nextpage'><a href='#/login'>¿Ya tienes una cuenta? Iniciar Sesión</a></p>
         <div class="line-google"><span> o </span></div>
@@ -57,7 +58,19 @@ const registerDisplay = () => {
       })
       .catch((error) => {
         const errorCode = error.code;
-        console.log(errorCode);
+        const wrongInput = divElement.querySelector('.error');
+        switch (errorCode) {
+          case '':
+            wrongInput.innerText = 'Campo vacío.Ingrese su email';
+            break;
+          case 'auth/invalid-email':
+            wrongInput.innerText = 'Correo inválido';
+            break;
+          case 'auth/email-already-in-use':
+            wrongInput.innerText = 'Correo ya registrado';
+            break;
+          default:
+        }
         const errorMessage = error.message;
         console.log(errorMessage);
         // ..

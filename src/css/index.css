@@ -187,6 +187,9 @@
     justify-content: center;
 }
 
+.error{
+    color:red;
+}
 .link-nextpage a {
     text-decoration: underline;
     color: var(--color-text);
@@ -351,6 +354,9 @@ nav {
 }
 .post-message{
     visibility: hidden;
+    color:#7C0E0E;
+    font-family: 'Righteous', cursive;
+    font-size: 44px;
 }
 
 .btn-delete .btn-edit .hidden {

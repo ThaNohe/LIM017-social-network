@@ -9,49 +9,49 @@ import {
 const newsDisplay = () => {
   const divElement = document.createElement('div');
   const newsPage = `
-  <section class="header">
-        <nav class="header-nav">
-            <div class="logos-container">
-                <img src="../pics/logo-news.png" alt="logo" class="logo">
+  <section class='header'>
+        <nav class='header-nav'>
+            <div class='logos-container'>
+                <img src='../pics/logo-news.png' alt='logo' class='logo'>
             </div>
-            <div class="nav-container">
-                <div for="check" class="search-lup">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+            <div class='nav-container'>
+                <div for='check' class='search-lup'>
+                    <i class='fa-solid fa-magnifying-glass'></i>
                 </div>
-                <input type="search" class="search-nav" id="search" placeholder="Search...">
-                <div for="check" class="search" id="logOut">
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <input type='search' class='search-nav' id='search' placeholder='Search...'>
+                <div for='check' class='search' id='logOut'>
+                <i class='fa-solid fa-arrow-right-from-bracket'></i>
                 </div>
             </div>
         </nav>
     </section>
     
-        <section class="public-container ">
-            <div class="direct-access">
-                <div class="home-option">
-                    <i class="fa-solid fa-house"></i>
+        <section class='public-container '>
+            <div class='direct-access'>
+                <div class='home-option'>
+                    <i class='fa-solid fa-house'></i>
                 </div>
-                <div class="destacado-option">
-                    <i class="fa-solid fa-star"></i>
+                <div class='destacado-option'>
+                    <i class='fa-solid fa-star'></i>
                     Destacado
                 </div>
-                <div class="recomendaciones-option">
-                    <i class="fa-solid fa-comments"></i>
+                <div class='recomendaciones-option'>
+                    <i class='fa-solid fa-comments'></i>
                     Recomendaciones
                 </div>
             </div>
             <form>
-            <div class="post-container" id="posts">
-            <input type="text" id="description" class="post-text" placeholder="¿Qué estas pensando?">
-            <p class= 'post-message' id='post-message-alert'>Por favor ingrese un comentario</p>
-            <div class="button-post">
-                <button id="postSubmit" class="post-comment">Publicar</button>
+            <div class='post-container' id='posts'>
+            <input type='text' id='description' class='post-text' placeholder='¿Qué estas pensando?'>
+            <p class='post-message' id='post-message-alert'>Campo vacío.Por favor ingrese texto</p>
+            <div class='button-post'>
+                <button id='postSubmit' class='post-comment'>Publicar</button>
                 </div>
             </div>
             </form>
         </section>
     </div>
-    <div class="post-publish" id='post-Publish'>
+    <div class='post-publish' id='post-Publish'>
     </div>
     `;
   divElement.innerHTML = newsPage;
@@ -69,8 +69,8 @@ const newsDisplay = () => {
       <textarea readonly class='description-post' id='textarea-post${doc.id}'> ${dataPost.description} </textarea>
       <p class='time-post'>${dataPost.createdAt} </p>
 
-      <button data-id="${doc.id}" class='btn-delete'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Borrar</button>
-      <button data-id="${doc.id}" class='btn-edit'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Editar</button>
+      <button data-id='${doc.id}' class='btn-delete'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Borrar</button>
+      <button data-id='${doc.id}' class='btn-edit'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Editar</button>
       <button class='hidden' id='btn-Ok${doc.id}'>Ok</button>
     
     </form>

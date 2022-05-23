@@ -6,8 +6,6 @@ import register from './components/register.js';
 
 import newsFeed from './components/news.js';
 
-/* import { app } from './config.js'; */
-
 const components = {
   Home: home,
   Login: login,
