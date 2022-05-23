@@ -5,7 +5,7 @@ import register from '../src/components/register.js';
 import login from '../src/components/login.js';
 import news from '../src/components/news.js';
 
-jest.mock('../src/lib/authFunctions.js');
+jest.mock('../src/lib/firestoreFunctions.js');
 
 describe('changeView recibe un path y devuelve el componente', () => {
   it('devuelve componente HOME', () => {
@@ -26,6 +26,8 @@ describe('changeView recibe un path y devuelve el componente', () => {
   it('devuelve componente NEWS', () => {
     document.body.innerHTML = '<section id="container"></section>';
     const result = changeView('#/news');
+    console.log(result);
+    console.log(news());
     expect(result).toEqual(news());
   });
 });
