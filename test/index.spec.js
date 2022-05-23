@@ -5,7 +5,7 @@ import register from '../src/components/register.js';
 import login from '../src/components/login.js';
 import news from '../src/components/news.js';
 
-jest.mock('../src/lib/firestoreFunctions.js');
+jest.mock('../src/lib/firebaseFunctions.js');
 
 describe('changeView recibe un path y devuelve el componente', () => {
   it('devuelve componente HOME', () => {

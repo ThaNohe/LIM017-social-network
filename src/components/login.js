@@ -54,13 +54,19 @@ const loginDisplay = () => {
       .catch((error) => {
         const errorCode = error.code;
         console.log(errorCode);
-        /* const wrongInput = divElement.querySelector('.error');
-         switch (errorCode) {
+        const wrongInput = divElement.querySelector('.error');
+        switch (errorCode) {
+          case 'auth/user-not-found':
+            wrongInput.innerText = 'Cuenta no registrada.Por favor registrarse';
+            break;
+          case 'auth/wrong-password':
+            wrongInput.innerText = 'Contraseña inválida.Intente nuevamente';
+            break;
           case 'auth/invalid-email':
-            wrongInput.innerText = 'Correo invalido';
+            wrongInput.innerText = 'Campos vacíos.Ingrese correo y contraseña';
             break;
           default:
-        } */
+        }
         const errorMessage = error.message;
         console.log(errorMessage);
       });
