@@ -3,11 +3,11 @@ import {
   getAuth, createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword,
   signInWithPopup, GoogleAuthProvider, signOut, collection, addDoc, onSnapshot, deleteDoc, doc, updateDoc, getDoc, orderBy, query,
 
-} from './firestoreFunctions.js';
+} from './firebaseFunctions.js';
 import { app, db } from './config.js';
 
 export const auth = getAuth(app);
-
+// Funciones de  Authentificación
 // Función de registro
 
 export const registerWithEmail = (email, password) => (
@@ -29,6 +29,7 @@ export const signGoogle = () => signInWithPopup(auth, provider);
 // auth Log out
 export const signOutFirebase = () => signOut(auth);
 
+// Funciones de Firestore
 // Función para guardar post
 export const saveTask = (description, email, createdAt) => addDoc(collection(db, 'posts'), { description, email, createdAt });
 
