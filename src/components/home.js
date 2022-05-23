@@ -18,6 +18,6 @@ export default () => {
   const divElement = document.createElement('div');
   /*  console.log(divElement); */
   divElement.innerHTML = homePage;
-  // return divElement;
+  return divElement;
   /* console.log(divElement); */
 };

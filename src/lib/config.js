@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-import { initializeApp, getFirestore } from './firestoreFunctions.js';
+import { initializeApp, getFirestore } from './firebaseFunctions.js';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyARl0JtBJwmmCcNBy_Q8V30YI1CiJdW8Iw',

@@ -1,4 +1,4 @@
-import { loginWithEmail, signGoogle } from '../lib/authFunctions.js';
+import { loginWithEmail, signGoogle } from '../lib/functionsController.js';
 
 const loginDisplay = () => {
   const loginPage = `
