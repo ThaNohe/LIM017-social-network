@@ -65,14 +65,13 @@ const newsDisplay = () => {
       // doc.data transforma los datos de un objeto de firebase a un objeto de javascript
       html += `
     <form class='post-container'>
-      <p class='email-post'>${dataPost.email} </p> 
+      <p class='email-post'>${dataPost.email} </p>
       <textarea readonly class='description-post' id='textarea-post${doc.id}'> ${dataPost.description} </textarea>
       <p class='time-post'>${dataPost.createdAt} </p>
 
       <button data-id='${doc.id}' class='btn-delete'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Borrar</button>
       <button data-id='${doc.id}' class='btn-edit'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Editar</button>
       <button class='hidden' id='btn-Ok${doc.id}'>Ok</button>
-    
     </form>
             `;
     });
