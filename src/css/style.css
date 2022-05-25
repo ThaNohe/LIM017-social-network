@@ -189,6 +189,7 @@
 
 .error{
     color:red;
+    font-size:10px;
 }
 .link-nextpage a {
     text-decoration: underline;
