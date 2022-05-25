@@ -29,7 +29,7 @@ El objetivo principal de este proyecto es que los fanaticos de los animes puedan
 * ☑ Registrar usuario con cuenta de google
 * ☑ Logueo con correo y cuenta de google
 
->H.U 3- VALIDACIONES DE LOGUEO
+>H.U 4- VALIDACIONES DE LOGUEO
 * ☑ Permitir el acceso con cuentas válidas
 * ☑ Permitir el registro 1 sola vez con el mismo correo
 * ☑ Lo que se escriba en el campo (input) de contraseña debe ser secreto.
