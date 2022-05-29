@@ -1,5 +1,7 @@
 import {
-  signOutFirebase, auth, saveTask,
+  signOutFirebase,
+  auth,
+  saveTask,
   onSnapshotFb,
   deletePost,
   getPost,
