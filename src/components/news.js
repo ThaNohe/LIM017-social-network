@@ -72,7 +72,6 @@ const newsDisplay = () => {
       <button data-id='${doc.id}' class='btn-delete'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Borrar</button>
       <button data-id='${doc.id}' class='btn-edit'${dataPost.email === JSON.parse(localStorage.getItem('userEmail')).emailUser ? '' : 'disabled'}>Editar</button>
       <button class='hidden' id='btn-Ok${doc.id}'>Ok</button>
-    
     </form>
             `;
     });
@@ -107,8 +106,8 @@ const newsDisplay = () => {
     const authorId = auth.currentUser;
     const inputDescription = divElement.querySelector('#description').value;
     const todayDate = new Date();
-    // saveTask(inputDescription, authorId.email, todayDate);
-    /* window.location.href = '#/news'; */
+    /*  saveTask(inputDescription, authorId.email, todayDate); */
+    /* window.location.href = '#/news';  */
     if (inputDescription === '') {
       document.getElementById('post-message-alert').classList.remove('post-message');
     } else {
