@@ -69,6 +69,9 @@ const registerDisplay = () => {
           case 'auth/email-already-in-use':
             wrongInput.innerText = 'Correo ya registrado';
             break;
+          case 'auth/weak-password':
+            wrongInput.innerText = 'Contraseña debe contener mínimo 6 dígitos';
+            break;
           default:
         }
         const errorMessage = error.message;

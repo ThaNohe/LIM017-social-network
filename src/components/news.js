@@ -1,5 +1,7 @@
 import {
-  signOutFirebase, auth, saveTask,
+  signOutFirebase,
+  auth,
+  saveTask,
   onSnapshotFb,
   deletePost,
   getPost,
@@ -65,7 +67,7 @@ const newsDisplay = () => {
       // doc.data transforma los datos de un objeto de firebase a un objeto de javascript
       html += `
     <form class='post-container'>
-      <p class='email-post'>${dataPost.email} </p> 
+      <p class='email-post'>${dataPost.email} </p>
       <textarea readonly class='description-post' id='textarea-post${doc.id}'> ${dataPost.description} </textarea>
       <p class='time-post'>${dataPost.createdAt} </p>
 
