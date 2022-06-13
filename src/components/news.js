@@ -102,7 +102,6 @@ const newsDisplay = () => {
       });
     });
   });
-
   divElement.querySelector('#postSubmit').addEventListener('click', () => {
     const authorId = auth.currentUser;
     const inputDescription = divElement.querySelector('#description').value;
